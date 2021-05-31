@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="#">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="#">
+    {% block styles %}{% endblock %}
+    
+    <title>M P H - {% block extra_title %}{% endblock %}</title>
+
+</head>
+<body>
+    <header>
+        <!-- navbar -->
+        <nav class="nav-wrapper blue-grey">
+            <div class="container">
+                <a href="#" class="brand-logo">M P H P & D</a>
+                <a href="#" class="sidenav-trigger right" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    {% if user.is_superuser %}
+                        <li><a href="#">Explore</a></li>
+                    {% endif %}
+                        <li><a href="#">IMAGE</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Contact</a></li>
+                    {{% if user.is_authenticated %}}
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    {% else %}
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <!-- mobile sidenav -->
+        <ul class="sidenav" id="mobile-links">
+            <li class="center-align blue-grey-text"><h4>Commonplace</h4></li>
+            <hr>
+            {% if user.is_superuser %}
+                <li><a href="#">Explore</a></li>
+            {% endif %}
+                <li><a href="#">IMAGE</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            {{% if user.is_authenticated %}}
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Sign Out</a></li>
+            {% else %}
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </header>
+
+    <main class="container">
+        {% include './messages.html' %}
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="page-footer blue-grey valign-wrapper">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col s6 center-align">
+                    <div class="footer-copyright transparent">
+                        <div class="container">&copy; 2021 M P H Photography & Design</div>
+                    </div>
+                </div>
+                <div class="col s6 center-align">
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter.com" class="footer-icon btn-large transparent z-depth-0">
+                        <i class="fab fa-twitter-square"></i>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook.com" class="footer-icon btn-large transparent z-depth-0">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram.com" class="footer-icon btn-large transparent z-depth-0">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Materialize CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {% block page_js %}{% endblock %}
+    <!-- Custom Javascript -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>
