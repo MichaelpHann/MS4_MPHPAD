@@ -14,68 +14,114 @@
     <!-- Materialize CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="#">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="#">
     {% block styles %}{% endblock %}
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+
+    {% block corecss %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
     
     <title>M P H - {% block extra_title %}{% endblock %}</title>
 
 </head>
 <body>
     <header>
+
         <!-- navbar -->
         <nav class="nav-wrapper blue-grey">
             <div class="container">
-                <a href="#" class="brand-logo">M P H P & D</a>
-                <a href="#" class="sidenav-trigger right" data-target="mobile-links">
+                <a href="{% url 'home' %}" class="brand-logo center">
+                    <img src="{{ MEDIA_URL }}MPH_logo.png" alt="MPH logo" width="64" height="64">
+                </a>
+                <a class="right" href="">
+                        <div class="">
+                            <span><i class="fas fa-shopping-bag fa-lg"></i></span>
+                            <span class="">
+                                {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    £0.00
+                                {% endif %}
+                            </span>
+                        </div>
+                    </a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
                     <i class="material-icons">menu</i>
                 </a>
-                <ul class="right hide-on-med-and-down">
+                <ul class="hide-on-med-and-down">
                     {% if user.is_superuser %}
                         <li><a href="#">Explore</a></li>
                     {% endif %}
-                        <li><a href="#">IMAGE</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Work</a></li>
                         <li><a href="#">Shop</a></li>
                         <li><a href="#">Contact</a></li>
-                    {{% if user.is_authenticated %}}
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Sign Out</a></li>
-                    {% else %}
-                        <li><a href="#">Sign In</a></li>
-                        <li><a href="#">Sign Up</a></li>
-                    {% endif %}
+                        {% if request.user.is_authenticated %}
+                            <li class="right">
+                                <!-- Dropdown Trigger -->
+                                <a class='dropdown-btn dropdown-trigger btn' href='#' data-target='dropdown1'>
+                                    <i class="nav-link fas fa-user fa-lg"></i>
+                                    Account
+                                    <i class="material-icons right">keyboard_arrow_down</i>
+                                </a>
+                                <!-- Dropdown Structure -->
+                                <ul id='dropdown1' class='dropdown-content'>
+                                    {% if request.user.is_superuser %}
+                                        <a href="#">Product Management</a>
+                                    {% endif %}
+                                    <li><a href="#!">Profile</a></li>
+                                    <hr>
+                                    <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="right"><a href="{% url 'account_login' %}">Sign In</a></li>
+                            <li class="right"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                        {% endif %}
                 </ul>
             </div>
         </nav>
 
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-links">
-            <li class="center-align blue-grey-text"><h4>Commonplace</h4></li>
+            <li class="center-align blue-grey-text"><h4>#</h4></li>
             <hr>
             {% if user.is_superuser %}
                 <li><a href="#">Explore</a></li>
             {% endif %}
-                <li><a href="#">IMAGE</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Work</a></li>
                 <li><a href="#">Shop</a></li>
                 <li><a href="#">Contact</a></li>
-            {{% if user.is_authenticated %}}
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Sign Out</a></li>
-            {% else %}
-                <li><a href="#">Sign In</a></li>
-                <li><a href="#">Sign Up</a></li>
-            {% endif %}
+                {% if request.user.is_authenticated %}
+                    <li class="right">
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-btn dropdown-trigger btn' href='#' data-target='dropdown1'>
+                            <i class="nav-link fas fa-user fa-lg"></i>
+                            Account
+                            <i class="material-icons right">keyboard_arrow_down</i>
+                        </a>
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            {% if request.user.is_superuser %}
+                                <a href="#">Product Management</a>
+                            {% endif %}
+                            <li><a href="#!">Profile</a></li>
+                            <hr>
+                            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="right"><a href="{% url 'account_login' %}">Sign In</a></li>
+                    <li class="right"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                {% endif %}
         </ul>
     </header>
 
     
     <main class="container">
-        {% include './messages.html' %}
+        {% include 'includes/messages.html' %}
         {% block content %}
         {% endblock %}
     </main>

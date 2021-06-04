@@ -1,0 +1,57 @@
+main {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+    min-height: 100vh;
+}
+
+/* header {
+    background: url('static/img/man.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 1000px;
+} */
+
+.page-footer {
+    padding: 0;
+}
+.footer-content {
+    margin-bottom: 0;
+}
+
+.footer-content .footer-icon {
+    padding: 0;
+}
+
+
+i.material-icons {
+    margin-left: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: rgb(90, 89, 89);
+    background-image: -webkit-gradient(linear, left top, right top, from(#ccc), color-stop(rgb(192, 192, 192)), to(#ccc));
+    background-image: -o-linear-gradient(left, #ccc, rgb(192, 192, 192), #ccc);
+    background-image: linear-gradient(to right, #ccc, rgb(192, 192, 192), #ccc);
+}
+
+/* Buttons */
+
+a.dropdown-btn.dropdown-trigger {
+    margin: 0;
+    padding: 0 5px 0 10px;
+    font-size: 14.5px;
+    text-transform: inherit;
+    background: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+
+/* Navbar   */
+
+.fas.fa-shopping-bag {
+    margin: 0 2px 0 12px;
+}
