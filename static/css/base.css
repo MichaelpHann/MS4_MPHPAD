@@ -1,16 +1,38 @@
+body {
+    display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 main {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
-    min-height: 100vh;
 }
 
-/* header {
-    background: url('static/img/man.jpeg');
-    background-size: cover;
-    background-position: center;
-    min-height: 1000px;
-} */
+/* Navbar   */
+
+.nav-wrapper {
+    padding: 20px 0;
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.nav-wrapper .a {
+    font-size: 15.5px;
+}
+
+.fas.fa-shopping-bag {
+    margin: 0 2px 0 12px;
+}
+
+/* Footer  */
 
 .page-footer {
     padding: 0;
@@ -50,8 +72,28 @@ a.dropdown-btn.dropdown-trigger {
 }
 
 
-/* Navbar   */
 
-.fas.fa-shopping-bag {
-    margin: 0 2px 0 12px;
+
+.banner-pic {
+    background-image: url("/static/img/man.jpeg");
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.tabs .indicator{
+      background-color: #1a237e;
+    }
+    .tabs .tab a:focus, .tabs .tab a:focus.active{
+      background: transparent;
+    }
+
+
+/* Photo Categories */
+
+.photo-categories {
+    padding: 4vw 0;
 }

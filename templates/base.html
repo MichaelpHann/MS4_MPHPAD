@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400&display=swap" rel="stylesheet">
     <!-- Materialize CSS-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <!-- Custom CSS -->
@@ -26,13 +26,12 @@
 
 </head>
 <body>
-    <header>
-
+    <header class="{% block custom_header_class %}{% endblock %}">
         <!-- navbar -->
-        <nav class="nav-wrapper blue-grey">
+        <nav class="nav-wrapper transparent">
             <div class="container">
                 <a href="{% url 'home' %}" class="brand-logo center">
-                    <img src="{{ MEDIA_URL }}MPH_logo.png" alt="MPH logo" width="64" height="64">
+                    <img src="{% static 'img/mph_logo.png' %}" alt="mph-logo" width="64" height="64">
                 </a>
                 <a class="right" href="">
                         <div class="">
@@ -50,9 +49,6 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="hide-on-med-and-down">
-                    {% if user.is_superuser %}
-                        <li><a href="#">Explore</a></li>
-                    {% endif %}
                         <li><a href="#">About</a></li>
                         <li><a href="#">Work</a></li>
                         <li><a href="#">Shop</a></li>
@@ -120,7 +116,7 @@
     </header>
 
     
-    <main class="container">
+    <main>
         {% include 'includes/messages.html' %}
         {% block content %}
         {% endblock %}
