@@ -72,8 +72,6 @@ a.dropdown-btn.dropdown-trigger {
 }
 
 
-
-
 .banner-pic {
     background-image: url("/static/img/man.jpeg");
     position: relative;
@@ -96,4 +94,38 @@ a.dropdown-btn.dropdown-trigger {
 
 .photo-categories {
     padding: 4vw 0;
+}
+
+.card {
+    border-radius: 2px;
+    min-height: 400px;
+}
+
+.card .card-content {
+    padding: 10px 6px;
+}
+
+.card .card-image img {
+    border-radius: 2px;
+    height: 200px;
+}
+
+.card .card-image {
+    margin-bottom: 10px;
+}
+
+.card .card-image .card-title {
+    padding: 0 0 0 10px;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.card .product-description {
+    height: 110px;
+    padding: 12px 8px;
+}
+
+.card .product-detail {
+    height: 30px;
+    padding: 12px 8px;
 }

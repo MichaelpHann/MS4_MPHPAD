@@ -6,12 +6,46 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            {{ products }}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <h4 class="center">Products</h4>
+            {% for product in products %}
+                <div class="col s12 m4">
+                    <div class="card small">
+                        <div class="card-content product-card">
+                            <div class="card-image">
+                                {% if product.image %}
+                                <a href="">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                </a>
+                                <span class="card-title">{{ product.descriptive_name }}</span>
+                                {% else %}
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="product-description">
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                            <hr>
+                            <div class="product-detail">
+                                <div class="row">
+                                    <div class="col s6">
+                                        <p>{{ product.size }}</p>
+                                    </div>
+                                    <div class="col s6">
+                                        <p class="right"><strong>£{{ product.price }}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-</div>
+</section>
+
 {% endblock %}
 
