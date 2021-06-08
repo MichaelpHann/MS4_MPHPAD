@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block custom_header_class %}
+{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+                <div class="col s12 m5 offset-1">
+                    {% if product.image %}
+                        <img class="responsive-img materialboxed" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    {% endif %}
+                </div>
+                <div class="col s12 m6">
+                    <div class="">{{ product.descriptive_name }}</div>
+                    <hr>
+                    <div class="">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                </div>
+                <div class="product-detail">
+                    <div class="row">
+                        <div class="col s6">
+                            <p>{{ product.size }}</p>
+                        </div>
+                        <div class="col s6">
+                            <p class=><strong>£{{ product.price }}</strong></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+

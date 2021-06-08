@@ -28,13 +28,15 @@
 
 </head>
 <body>
-    <header class="{% block custom_header_class %}{% endblock %}">
+    <header>
         <!-- navbar -->
-        <nav class="nav-wrapper transparent">
-            <div class="container">
-                <a class="right" href="">
-                        <div class="">
-                            <span><i class="fas fa-shopping-bag fa-lg"></i></span>
+        <nav class="nav-wrapper white">
+            <div class="container nav-container">
+                <a href="{% url 'home' %}" class="brand-logo center">
+                    <img src="{% static 'img/mph_logo.png' %}" alt="" width="64" height="64">
+                </a>
+                <a class="active right shopping-bag" href="{% url 'view_bag' %}">
+                            <span><i class="fas fa-shopping-bag"></i></span>
                             <span class="">
                                 {% if grand_total %}
                                     £{{ grand_total|floatformat:2 }}
@@ -42,13 +44,12 @@
                                     £0.00
                                 {% endif %}
                             </span>
-                        </div>
-                    </a>
+                </a>
                 <a href="#" class="sidenav-trigger" data-target="mobile-links">
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="hide-on-med-and-down">
-                        <li><a href="#">About</a></li>
+                        <li><a href="#about-me">About</a></li>
                         <li><a href="#">Work</a></li>
                         <li><a href="{% url 'products' %}">Shop</a></li>
                         <li><a href="#">Contact</a></li>
@@ -56,8 +57,8 @@
                             <li class="right">
                                 <!-- Dropdown Trigger -->
                                 <a class='dropdown-btn dropdown-trigger btn' href='#' data-target='dropdown1'>
-                                    <i class="nav-link fas fa-user fa-lg"></i>
-                                    Account
+                                    <i class="nav-link fas fa-user"></i>
+                                    <span>Account</span>
                                     <i class="material-icons right">keyboard_arrow_down</i>
                                 </a>
                                 <!-- Dropdown Structure -->
@@ -80,17 +81,17 @@
 
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-links">
-            <li class="center-align blue-grey-text"><h4>M P H</h4></li>
-                <li><a href="#">About</a></li>
+            <li class="center-align"><h4>M P H</h4></li>
+                <li><a href="#about-me">About</a></li>
                 <li><a href="#">Work</a></li>
                 <li><a href="{% url 'products' %}">Shop</a></li>
                 <li><a href="#">Contact</a></li>
                 {% if request.user.is_authenticated %}
-                    <li class="right">
+                    <li>
                         <!-- Dropdown Trigger -->
-                        <a class='dropdown-btn dropdown-trigger btn' href='#' data-target='dropdown1'>
+                        <a class="dropdown-btn dropdown-trigger btn" href="" data-target="dropdown1">
                             <i class="nav-link fas fa-user fa-lg"></i>
-                            Account
+                            <span>Account</span>
                             <i class="material-icons right">keyboard_arrow_down</i>
                         </a>
                         <!-- Dropdown Structure -->
@@ -108,6 +109,9 @@
                     <li class="right"><a href="{% url 'account_signup' %}">Sign Up</a></li>
                 {% endif %}
         </ul>
+
+        {% block extra_header %}
+        {% endblock %}
     </header>
 
     

@@ -1,12 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block custom_header_class %}
-    banner-pic
-{% endblock %}
-
 {% block content %}
-<section class="container section">
+<section class="slider slider-main">
+                <ul class="slides slides-main">
+                <li>
+                    <img src="{% static 'img/city.jpeg' %}" alt="">
+                    <div class="caption center-align">
+                    <a href="#" class="btn btn-large">Learn More</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="{% static 'img/statue_of_liberty1.png' %}" alt="">
+                    <div class="caption left-align">
+                    <a href="#" class="btn btn-large">Learn More</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="{% static 'img/statue_of_liberty1.png' %}" alt="">
+                    <div class="caption right-align">
+                    <a href="#" class="btn btn-large">Learn More</a>
+                    </div>
+                </li>
+                </ul>
+            </section>
+
+<section class="container section scrollspy" id="about-me">
     <div class="row">
         <div class="col s12 l5">
             <h2 class="indigo-text-darken-4">What I do...</h2>

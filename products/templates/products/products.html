@@ -2,26 +2,57 @@
 {% load static %}
 
 {% block custom_header_class %}
-    banner-pic
+<section>
+    <div class="row">
+        <img src="{% static 'img/statue_of_liberty1.jpeg' %}" alt="">
+    </div>
+</section>
 {% endblock %}
 
 {% block content %}
+<section class="container">
+    <div class="row">
+        <h4>Filter by Category</h4>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <div class="btn">
+                <a class="" href="{% url 'products' %}?category=landscape,cityscape">
+                    <span class="white-text">All</span>
+                </a>
+            </div>
+            <div class="btn">
+                <a class="" href="{% url 'products' %}?category=landscape">
+                    <span class="white-text">Landscape</span>
+                </a>
+            </div>
+            <div class="btn">
+                <a class="" href="{% url 'products' %}?category=cityscape">
+                    <span class="white-text">Cityscape</span>
+                </a>
+            </div>
+    </div>
+    </div>
+</section>
+
 <section class="section">
     <div class="container">
         <div class="row">
-            <h4 class="center">Products</h4>
+            
             {% for product in products %}
                 <div class="col s12 m4">
                     <div class="card small">
                         <div class="card-content product-card">
                             <div class="card-image">
                                 {% if product.image %}
-                                <a href="">
-                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                </a>
-                                <span class="card-title">{{ product.descriptive_name }}</span>
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                    <span class="card-title">{{ product.descriptive_name }}</span>
                                 {% else %}
-                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
                                 {% endif %}
                             </div>
                             <div class="product-description">
