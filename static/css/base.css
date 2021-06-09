@@ -151,3 +151,9 @@ a.dropdown-btn.dropdown-trigger {
     height: 30px;
     padding: 12px 8px;
 }
+
+/* Shopping Bag */
+
+.shopping-bag-image {
+    max-height: 300px;
+}
