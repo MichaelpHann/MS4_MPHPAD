@@ -91,6 +91,11 @@ a.dropdown-btn.dropdown-trigger {
             box-shadow: none;
 }
 
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 .slider-main {
     height: 85vh;
 }
