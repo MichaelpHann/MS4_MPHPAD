@@ -3,10 +3,9 @@
 {% load bag_tools %}
 
 {% block content %}
-    <section>
-        <div class="container">
+    <section class="section container">
             <div class="row">
-                <h3>Shopping Bag</h3>
+                <h4>Shopping Bag</h4>
                 <hr>
             </div>
             <div class="row">
@@ -80,7 +79,7 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="" class="btn">
+                                    <a href="{% url 'checkout' %}" class="btn">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -101,7 +100,6 @@
                     {% endif %}
                 </div>
             </div>
-        </div>
     </section>
 {% endblock %}
 
