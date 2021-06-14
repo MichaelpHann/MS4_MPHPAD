@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %} 
+{% load bag_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -13,62 +13,17 @@
                 <hr>
             </div>
             <div class="row">
-                <div class="col s12">
-                    <p>Order Summary ({{ product_count }})</p>
-                    <div class="row">
-                        <div class="col s7 offset-2">
-                            <p>Item</p>
-                        </div>
-                        <div class="col s3 right">
-                            <p>Subtotal</p>
-                        </div>
-                        {% for item in bag_items %}
-                            <div class="row">
-                                <div class="col s2">
-                                    <a href="{% url 'product_detail' item.product.id %}">
-                                        {% if item.product.image %}
-                                            <img class="" src="{{ item.product.image.url }}"
-                                            alt="{{ product.name }}"/>
-                                        {% else %}
-                                            <img class="" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"/>
-                                        {% endif %}
-                                    </a>
-                                </div>
-                                <div class="col s7">
-                                    <p><strong>{{ item.product.name }}</strong></p>
-                                    <p>Qty: {{ item.quantity }}</p>
-                                </div>
-                                <div class="col s3 text-right">
-                                    <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                                </div>
-                            </div>
-                        {% endfor %}
-                        <hr>
-                        <div class="row text-right">
-                            <div class="col s7 offset-2">
-                                <p>Order Total:</p>
-                                <p>Delivery:</p>
-                                <p>Grand Total:</p>
-                            </div>
-                            <div class="col s3">
-                                <p>£{{ total | floatformat:2 }}</p>
-                                <p>£{{ delivery | floatformat:2 }}</p>
-                                <p><strong>£{{ grand_total | floatformat:2 }}</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 l6">
+                <div class="col s12 m6">
                     <p class="">Please fill out the form below to complete your order</p>
                     <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
                         <fieldset>
-                            <legend>Details</legend>
+                            <legend class="fieldset-label">Details</legend>
                             {{ order_form.full_name }} 
                             {{ order_form.email }}
                         </fieldset>
                         <fieldset>
-                            <legend>Delivery</legend>
+                            <legend class="fieldset-label">Delivery</legend>
                             {{ order_form.street_address1 }} 
                             {{ order_form.street_address2 }} 
                             {{ order_form.town_or_city }} 
@@ -91,7 +46,7 @@
                             </div>
                         </fieldset>
                         <fieldset>
-                            <legend>Payment</legend>
+                            <legend class="fieldset-label">Payment</legend>
                             <!-- A Stripe card element will go here -->
                             <div id="card-element"></div>
                             <!-- Use to display form errors -->
@@ -122,7 +77,58 @@
                         </div>
                     </form>
                 </div>
+                <div class="col s12 m5 offset-m1">
+                    <p>Order Summary ({{ product_count }})</p>
+                    <div class="row">
+                        <div class="col s7 offset-2">
+                            <p>Item</p>
+                        </div>
+                        <div class="col s3 right">
+                            <p>Subtotal</p>
+                        </div>
+                        {% for item in bag_items %}
+                            <div class="row">
+                                <div class="col s2">
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        {% if item.product.image %}
+                                            <img class="responsive-img materialboxed" src="{{ item.product.image.url }}"
+                                            alt="{{ product.name }}"/>
+                                        {% else %}
+                                            <img class="responsive-img materialboxed" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"/>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="col s7">
+                                    <p><strong>{{ item.product.name }}</strong></p>
+                                    <p>Qty: {{ item.quantity }}</p>
+                                </div>
+                                <div class="col s3 text-right">
+                                    <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <hr>
+                        <div class="row text-right">
+                            <div class="col s7 offset-2">
+                                <p>Order Total:</p>
+                                <p>Delivery:</p>
+                                <p>Grand Total:</p>
+                            </div>
+                            <div class="col s3">
+                                <p>£{{ total | floatformat:2 }}</p>
+                                <p>£{{ delivery | floatformat:2 }}</p>
+                                <p><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
     </section>
 {% endblock %}
 
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
