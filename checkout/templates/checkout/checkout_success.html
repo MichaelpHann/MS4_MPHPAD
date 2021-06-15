@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="section container">
+            <div class="row">
+                <h3>Thank you</h3>
+                <hr>
+                <p>Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+            </div>
+                <div class="row">
+                    <div class="col s12">
+                        <a href="{% url 'products' %}" class="btn">
+                            <span class="icon">
+                                <i class="fas fa-gifts"></i>
+                            </span>
+                            <span class="text-uppercase">Now check out the latest deals!</span>
+                        </a>
+                    </div>
+                </div>
+    </section>
+{% endblock %}
+
