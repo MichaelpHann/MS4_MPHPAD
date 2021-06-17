@@ -162,3 +162,13 @@ a.dropdown-btn.dropdown-trigger {
 .shopping-bag-image {
     max-height: 300px;
 }
+
+/* Allauth form formatting */
+
+.allauth-form-inner-content {
+    margin-top: 1.5rem;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
