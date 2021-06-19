@@ -8,16 +8,35 @@
 {% block content %}
     <section class="section container">
             <div class="row">
-                <h3>My Profile</h3>
+                <h4 class="center">MY PROFILE</h4>
                 <hr>
             </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <p class="text-muted">Default Deliver Information</p>
+                    <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                        {% csrf_token %}
+                        {{ form.default_phone_number }}
+                        {{ form.default_street_address1 }}
+                        {{ form.default_street_address2 }}
+                        {{ form.default_town_or_city }}
+                        {{ form.default_county }}
+                        {{ form.default_postcode }}
+                        {{ form.default_country }}
+                        <button class="btn">Update Information</button>
+                    </form>
+                </div>
+                <div class="col s12 m6">
+                    <p>Order History</p>
+                    {{ orders }}
+                </div>
+            </div>
+            {{ profile }}
     </section>
-    {{ profile }}
+    
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

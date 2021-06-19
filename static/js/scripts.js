@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    $(".sidenav").sidenav();
-    $('.dropdown-trigger').dropdown();
+    $('.sidenav').sidenav();
+    $('.dropdown-button').dropdown();
     $('.materialboxed').materialbox();
     $('.parallax').parallax();
     $('.tabs').tabs();

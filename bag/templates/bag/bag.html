@@ -3,11 +3,13 @@
 {% load bag_tools %}
 
 {% block content %}
+    <section class="shopping-bag-banner" id="shopping-bag-banner">
+    <div class="container">
+            <h4 class="center">SHOPPING BAG</h4>
+            <hr>
+    </div>
+    </section>
     <section class="section container">
-            <div class="row">
-                <h4>Shopping Bag</h4>
-                <hr>
-            </div>
             <div class="row">
                 <div class="col s12">
                     {% if bag_items %}
@@ -16,39 +18,45 @@
                             <thead>
                                 <tr>
                                     <th class="col s4" scope="col">Product Info</th>
-                                    <th class="col s2 offset-s2 center" scope="col">Price</th>
-                                    <th class="col s2 center" scope="col">Qty</th>
-                                    <th class="col s2 center" scope="col">Subtotal</th>
+                                    <th class="col s2 right-align" scope="col">Price</th>
+                                    <th class="col s3 right-align" scope="col">Qty</th>
+                                    <th class="col s3 right-align" scope="col">Subtotal</th>
                                 </tr>
                             </thead>
                             {% for item in bag_items %}
                                 <tr>
-                                    <td class="col s2">
+                                    <td class="col s4">
+                                        <div class="col s12 m6">
                                         <img class="responsive-img materialboxed shopping-bag-image" src="{{ item.product.image.url }}">
+                                        </div>
+                                        <div class="col s12 m6 bag-product-title">
+                                        <p class="bag-product-name"><strong>{{ item.product.name }}</strong></p>
+                                        <p class="bag-product-sku text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        </div>
                                     </td>
-                                    <td class="col s3">
-                                        <p class=""><strong>{{ item.product.name }}</strong></p>
-                                        <p class="text-muted">SKU: {{ item.product.sku|upper }}</p>
-                                    </td>
-                                    <td class="col s2 offset-s1 center">
+                                    <td class="col s2 right-align">
                                         <p class="">£{{ item.product.price }}</p>
                                     </td>
-                                    <td class="col s2 center">
-                                        <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
-                                            {% csrf_token %}
-                                            <input class="center" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                            data-item_id="{{ product.id }}"
-                                            id="id_qty_{{ product.id }}">
-                                        </form>
-                                        <a class="update-link text-info btn update-link">
-                                            <small>Update</small>
-                                        </a>
-                                        <a class="remove-item btn remove-item" id="remove_{{ item.item_id }}">
-                                            <small>Remove</small>
-                                        </a>
+                                    <td class="col s3 right-align">
+                                        <div class="row bag-quantity-row">
+                                            <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input class="right-align" type="number"
+                                                name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                data-item_id="{{ product.id }}"
+                                                id="id_qty_{{ product.id }}">
+                                            </form>
+                                        </div>
+                                        <div class="row bag-adjust-btns ">
+                                            <a class="update-link text-info btn btn-small update-item-btn transparent">
+                                                <small>Update</small>
+                                            </a>
+                                            <a class="remove-item btn btn-small remove-item-btn transparent" id="remove_{{ item.item_id }}">
+                                                <small>Remove</small>
+                                            </a>
+                                        </div>
                                     </td>
-                                    <td class="col s2 center">
+                                    <td class="col s3 right-align">
                                         <p class="">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
@@ -73,13 +81,10 @@
                             <table>
                             <tr>
                                 <td colspan="5" class="right">
-                                    <a href="{% url 'products' %}" class="btn">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
+                                    <a href="{% url 'products' %}" class="btn keep-shopping-btn waves-effect waves-light transparent">
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="btn">
+                                    <a href="{% url 'checkout' %}" class="btn add-to-bag-btn waves-effect waves-light">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>

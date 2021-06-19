@@ -1,0 +1,23 @@
+select,
+select option {
+    display: block;
+    /* color: #000000; */
+}
+
+select#id_default_country {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+/* select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+} */

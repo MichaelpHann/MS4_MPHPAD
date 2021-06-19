@@ -50,32 +50,30 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="hide-on-med-and-down">
-                        <li><a href="#about-me">About</a></li>
-                        <li><a href="#">Work</a></li>
-                        <li><a href="{% url 'products' %}">Shop</a></li>
-                        <li><a href="#">Contact</a></li>
-                        {% if request.user.is_authenticated %}
-                            <li class="right">
-                                <!-- Dropdown Trigger -->
-                                <a class='dropdown-btn dropdown-trigger btn' href='#' data-target='dropdown1'>
-                                    <i class="nav-link fas fa-user"></i>
-                                    <span>Account</span>
-                                    <i class="material-icons right">keyboard_arrow_down</i>
-                                </a>
-                                <!-- Dropdown Structure -->
-                                <ul id='dropdown1' class='dropdown-content'>
-                                    {% if request.user.is_superuser %}
-                                        <a href="#">Product Management</a>
-                                    {% endif %}
-                                    <li><a href="{% url 'profile' %}">Profile</a></li>
-                                    <hr>
-                                    <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-                                </ul>
-                            </li>
-                        {% else %}
-                            <li class="right"><a href="{% url 'account_login' %}">Sign In</a></li>
-                            <li class="right"><a href="{% url 'account_signup' %}">Sign Up</a></li>
-                        {% endif %}
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="{% url 'products' %}">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li class="right">
+                            <!-- Dropdown Trigger -->
+                            <a class='dropdown-btn dropdown-button btn' href='#' data-target='dropdown1'>
+                                <i class="nav-link fas fa-user"></i>
+                                <span>Account</span>
+                                <i class="material-icons right">keyboard_arrow_down</i>
+                            </a>
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="{% url 'profile' %}">Profile</a></li>
+                                <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                                {% if request.user.is_superuser %}
+                                    <li><a href="#">Product Management</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="right"><a href="{% url 'account_login' %}">Sign In</a></li>
+                        <li class="right"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -83,34 +81,21 @@
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-links">
             <li class="center-align"><h4>M P H</h4></li>
-                <li><a href="#about-me">About</a></li>
-                <li><a href="#">Work</a></li>
+                <li><a href="#">Portfolio</a></li>
                 <li><a href="{% url 'products' %}">Shop</a></li>
                 <li><a href="#">Contact</a></li>
                 {% if request.user.is_authenticated %}
-                    <li>
-                        <!-- Dropdown Trigger -->
-                        <a class="dropdown-btn dropdown-trigger btn" href="" data-target="dropdown1">
-                            <i class="nav-link fas fa-user fa-lg"></i>
-                            <span>Account</span>
-                            <i class="material-icons right">keyboard_arrow_down</i>
-                        </a>
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                            {% if request.user.is_superuser %}
-                                <a href="#">Product Management</a>
-                            {% endif %}
-                            <li><a href="{% url 'profile' %}">Profile</a></li>
-                            <hr>
-                            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                    {% if request.user.is_superuser %}
+                        <hr>
+                        <li><a href="#">Product Management</a></li>
+                    {% endif %}
                 {% else %}
                     <li class="right"><a href="{% url 'account_login' %}">Sign In</a></li>
                     <li class="right"><a href="{% url 'account_signup' %}">Sign Up</a></li>
                 {% endif %}
         </ul>
-
         {% block extra_header %}
         {% endblock %}
     </header>
@@ -123,12 +108,12 @@
     </main>
 
     <!-- footer -->
-    <footer class="page-footer blue-grey valign-wrapper">
+    <footer class="page-footer transparent valign-wrapper">
         <div class="container">
             <div class="row footer-content">
                 <div class="col s6 center-align">
                     <div class="footer-copyright transparent">
-                        <div class="container">&copy; 2021 M P H Photography & Design</div>
+                        <div class="container footer-copyright-text">&copy; 2021 M P H Photography & Design</div>
                     </div>
                 </div>
                 <div class="col s6 center-align">
