@@ -166,12 +166,21 @@
             </div>
                 <div class="row">
                     <div class="col s12 center">
+                        {% if from_profile %}
+                            <a href="{% url 'profile' %}" class="btn">
+                                <span class="icon">
+                                    <i class="fas fa-angle-left"></i>
+                                </span>
+                                <span class="text-uppercase">Back to Profile</span>
+                            </a>
+                        {%  else %}
                         <a href="{% url 'products' %}" class="btn">
                             <span class="icon">
                                 <i class="fas fa-gifts"></i>
                             </span>
-                            <span class="text-uppercase">Now check out the latest deals!</span>
+                            <span class="text-uppercase">Back to Shop</span>
                         </a>
+                        {% endif %}
                     </div>
                 </div>
     </section>

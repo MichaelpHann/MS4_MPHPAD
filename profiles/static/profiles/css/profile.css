@@ -17,7 +17,7 @@ select#id_default_country {
     color: #aab7c4;
 }
 
-/* select:invalid,
-select option[value=""] {
-    color: #aab7c4 !important;
-} */
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}

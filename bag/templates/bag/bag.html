@@ -23,6 +23,7 @@
                                     <th class="col s3 right-align" scope="col">Subtotal</th>
                                 </tr>
                             </thead>
+                            <tbody>
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="col s4">
@@ -61,6 +62,7 @@
                                     </td>
                                 </tr>
                             {% endfor %}
+                            
                             <tr>
                                 <td colspan="5" class="right">
                                     <div class="row">
@@ -77,6 +79,7 @@
                                     {% endif %}
                                 </td>
                             </tr>
+                            </tbody>
                             </table>
                             <table>
                             <tr>

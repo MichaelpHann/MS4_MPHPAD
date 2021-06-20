@@ -13,7 +13,7 @@
             </div>
             <div class="row">
                 <div class="col s12 m6">
-                    <p class="text-muted">Default Deliver Information</p>
+                    <p class="text-muted">Default Delivery Information</p>
                     <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                         {% csrf_token %}
                         {{ form.default_phone_number }}
@@ -28,7 +28,39 @@
                 </div>
                 <div class="col s12 m6">
                     <p>Order History</p>
-                    {{ orders }}
+                    <div class="order-history responsive-table">
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th class="col s4" scope="col">Order Number</th>
+                                    <th class="col s2 right-align" scope="col">Date</th>
+                                    <th class="col s3 right-align" scope="col">Items</th>
+                                    <th class="col s3 right-align" scope="col">Order Total</th>
+                                </tr>
+                            </thead>
+                            {% for order in orders %}
+                                <tr>
+                                    <td class="col s4">
+                                        <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td class="">{{ order.date }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for item in order.lineitems.all %}
+                                            <li class="small">
+                                                {{ item.product.name }} x{{ item.quantity }}
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>{{ order.grand_total }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
                 </div>
             </div>
             {{ profile }}
