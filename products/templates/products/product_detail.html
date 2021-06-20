@@ -32,6 +32,14 @@
                         <div class="row product-detail-price">
                             <p><strong>£{{ product.price }}</strong></p>
                     </div>
+                    {% if request.user.is_superuser %}
+                        <div>
+                            <small>
+                                <a class="btn" href="{% url 'edit_product' product.id %}">Edit</a>
+                                <a class="btn" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                        </div>
+                    {% endif %}
                     <div class="row">
                         <form action="{% url 'add_to_bag' product.id %}" method="POST">
                             {% csrf_token %}

@@ -60,6 +60,12 @@
                             <div class="row product-price">
                                 <p><strong>£{{ product.price }}</strong></p>
                             </div>
+                            {% if request.user.is_superuser %}
+                                <div>
+                                    <a class="btn-small" href="{% url 'edit_product' product.id %}">Edit</a>
+                                    <a class="btn-small" href="{% url 'delete_product' product.id %}">Delete</a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
