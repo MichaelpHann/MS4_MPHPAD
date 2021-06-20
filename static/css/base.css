@@ -18,6 +18,13 @@ main {
             flex: 1 0 auto;
 }
 
+/* Form dropdowns */
+select,
+select option {
+    display: block;
+    color: #000000;
+}
+
 /* Navbar */
 
 .nav-container {

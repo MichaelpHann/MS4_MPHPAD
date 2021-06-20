@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="section container">
+            <div class="row center">
+                <h4>PRODUCT MANAGEMENT</h4>
+                <hr>
+                <h6>Add a Product</h6>
+            </div>
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="row card-panel">
+                        <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form }}
+                                <div class="right-align">
+                                    <a class="btn" href="{% url 'products' %}">Cancel</a>
+                                    <button class="btn" type="submit">Add Product</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock %}
+

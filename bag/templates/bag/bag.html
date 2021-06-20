@@ -28,7 +28,11 @@
                                 <tr>
                                     <td class="col s4">
                                         <div class="col s12 m6">
-                                        <img class="responsive-img materialboxed shopping-bag-image" src="{{ item.product.image.url }}">
+                                        {% if item.product.image %}
+                                            <img class="responsive-img materialboxed shopping-bag-image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                        {% else %}
+                                            <img class="responsive-img materialboxed shopping-bag-image" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                                        {% endif %}
                                         </div>
                                         <div class="col s12 m6 bag-product-title">
                                         <p class="bag-product-name"><strong>{{ item.product.name }}</strong></p>
