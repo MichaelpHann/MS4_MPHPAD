@@ -1,0 +1,1 @@
+web: gunicorn mph_p_and_d.wsgi:application
