@@ -33,11 +33,9 @@
                             <p><strong>£{{ product.price }}</strong></p>
                     </div>
                     {% if request.user.is_superuser %}
-                        <div>
-                            <small>
-                                <a class="btn" href="{% url 'edit_product' product.id %}">Edit</a>
-                                <a class="btn" href="{% url 'delete_product' product.id %}">Delete</a>
-                            </small>
+                        <div class="product-detail-adj-btns">
+                            <a class="waves-effect waves-light btn-small edit-btn transparent" href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a class="waves-effect waves-light btn-small delete-btn transparent" href="{% url 'delete_product' product.id %}">Delete</a>
                         </div>
                     {% endif %}
                     <div class="row">
@@ -56,11 +54,15 @@
                             </div>
                             <div class="row" id="product-detail-action-btns">
                                 <div class="col s12 center">
-                                    <a href="{% url 'products' %}" class="btn keep-shopping-btn waves-effect waves-light transparent">
+                                    <a href="{% url 'products' %}" class="btn keep-shopping-btn waves-effect waves-light">
                                         <span>Keep Shopping</span>
+                                        <i class="material-icons right"><strong>chevron_right</strong></i>
                                     </a>
-                                    <input type="submit" class="btn add-to-bag-btn waves-effect waves-light" value="Add to Bag">
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button class="btn add-to-bag-btn waves-effect waves-light">
+                                        <input type="submit" value="Add to Bag">
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                        <i class="material-icons right"><strong>chevron_right</strong></i>
+                                    </button>
                                 </div>
                             </div>
                         </form>

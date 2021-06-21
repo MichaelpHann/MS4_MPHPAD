@@ -62,8 +62,8 @@
                             </div>
                             {% if request.user.is_superuser %}
                                 <div>
-                                    <a class="btn-small" href="{% url 'edit_product' product.id %}">Edit</a>
-                                    <a class="btn-small" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    <a class="waves-effect waves-light btn-small edit-btn transparent" href="{% url 'edit_product' product.id %}">Edit</a>
+                                    <a class="waves-effect waves-light btn-small delete-btn transparent" href="{% url 'delete_product' product.id %}">Delete</a>
                                 </div>
                             {% endif %}
                         </div>
