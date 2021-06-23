@@ -158,7 +158,7 @@ a.product-category-btn {
     -webkit-box-shadow: none;
             box-shadow: none;
     border: 1px solid rgb(185, 182, 182);
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 a.product-category-btn:hover {
@@ -183,21 +183,6 @@ a.product-category-btn:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
 }
-
-/* a.reversal-button {
-    color: rgba(16, 57, 90, 0.718);
-    font-size: 15px;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    border: 1px solid rgb(185, 182, 182);
-    border-radius: 4px;
-}
-
-a.reversal-button:hover {
-    border: 2px solid rgba(16, 57, 90, 0.718);
-    -webkit-box-shadow: none;
-            box-shadow: none;
-} */
 
 a.edit-btn {
     color: rgba(2, 134, 81, 0.719);
@@ -284,8 +269,110 @@ a.remove-item {
             box-shadow: none;
 }
 
+.sign-out-btn {
+    color: rgba(173, 26, 26, 0.685);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.sign-out-btn:hover {
+    border: 1px solid rgb(94, 92, 92);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.signin-btn {
+    color: rgba(20, 114, 76, 0.719);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.signin-btn:hover {
+    border: 1px solid rgb(94, 92, 92);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.password-reset-btn {
+    color: rgba(20, 114, 76, 0.719);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.password-reset-btn:hover {
+    border: 1px solid rgb(94, 92, 92);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+
+.home-btn {
+    background-color: rgba(212, 203, 76, 0.788);
+    color: #000000;
+    font-size: 15px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.home-btn a {
+    color: #000000;
+}
+
+.home-btn:hover {
+    background-color: rgba(192, 185, 82, 0.788);
+    border: 1px solid rgb(94, 92, 92);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.back-to-login-btn {
+    background-color: rgba(212, 203, 76, 0.788);
+    color: #000000;
+    font-size: 15px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.back-to-login-btn a {
+    color: #000000;
+}
+
+.back-to-login-btn:hover {
+    background-color: rgba(192, 185, 82, 0.788);
+    border: 1px solid rgb(94, 92, 92);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+.confirm-email-btn {
+    color: rgba(20, 114, 76, 0.719);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.confirm-email-btn:hover {
+    border: 1px solid rgb(94, 92, 92);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
 
 /* Homepage */
+
+.parallax-container {
+    height: 40vh;
+}
 
 .tabs .indicator {
     background-color: #1a237e;
@@ -293,6 +380,10 @@ a.remove-item {
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
     background: transparent;
+}
+
+.workflow-section {
+    padding: 75px 0;
 }
 
 /* Shop */
@@ -489,6 +580,38 @@ div.col.order-summary-item {
     margin-top: 2px;
 }
 
+/* Checkout Success */
+
+.checkout-success-header {
+    text-transform: uppercase;
+}
+
+.checkout-success-info-header {
+    margin: 0;
+}
+
+.checkout-success-order-info-header-row {
+    margin: 0 0 10px 0;
+}
+
+.checkout-success-info-header-row {
+    margin: 25px 0 10px 0;
+}
+
+.checkout-success-info-row {
+    margin: 10px 0;
+}
+
+.checkout-success-info-category {
+    margin: 0;
+    padding-left: 8px;
+}
+
+.checkout-success-info-data {
+    margin: 0;
+    padding-left: 8px;
+}
+
 /* Product Form */
 
 .btn-file {
@@ -526,4 +649,54 @@ div.col.order-summary-item {
 
 .allauth-form-inner-content label:not([for='id_remember']) {
     display: none;
+}
+
+/* Sign Up Page */
+
+.signup-header {
+    text-transform: uppercase;
+}
+
+.signup-directions {
+    margin: 30px 0;
+}
+
+/* Sign In Page */
+
+.signin-header {
+    text-transform: uppercase;
+}
+
+.signin-directions {
+    margin: 30px 0;
+}
+
+/* Signout Page */
+
+.signout-header {
+    text-transform: uppercase;
+}
+
+.signout-question {
+    margin: 20px 0;
+}
+
+/* Password Reset */
+
+.password-reset-header {
+    text-transform: uppercase;
+}
+
+.password-reset-directions {
+    margin: 30px 0;
+}
+
+.reset-btn-input {
+    border: none;
+    background-color: none;
+    background: transparent;
+    text-transform: uppercase;
+    color: rgba(20, 114, 76, 0.719);
+    font-size: 15px;
+    padding: 0;
 }
