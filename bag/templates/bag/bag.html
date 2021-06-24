@@ -42,7 +42,7 @@
                                         <td class="col s2 right-align">
                                             <p class="">£{{ item.product.price }}</p>
                                         </td>
-                                        <td class="col s3 right-align">
+                                        <td class="col s2 offset-s1 right-align">
                                             <div class="row bag-quantity-row">
                                                 <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                                     {% csrf_token %}
@@ -52,7 +52,7 @@
                                                     id="id_qty_{{ product.id }}">
                                                 </form>
                                             </div>
-                                            <div class="row bag-adjust-btns ">
+                                            <div class="row bag-adjust-btns">
                                                 <a class="update-link text-info btn btn-small update-item-btn transparent">
                                                     <small>Update</small>
                                                 </a>
@@ -121,8 +121,8 @@
     <script>
     // Update quantity on click
     $(".update-link").click(function (e) {
-        var form = $(this).prev(".update-form");
-        form.submit();
+    var form = $(this).prev(".update-form");
+    form.submit();
     });
 
     // Remove item and reload on click
