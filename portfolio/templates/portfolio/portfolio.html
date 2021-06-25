@@ -9,36 +9,87 @@
     </div>
 </section>
 <section class="container" id="shop-catgory-filter">
-    <div class="row filter-category-text">
-        <h5 class="center flow-text">Filter by Category</h5>
+    <div class="row filter-portfolio-category-text center-align">
+        <span class="portfolio-filter-by-direction"><strong>Filter by</strong></span>
+        <span>
+            <!-- Dropdown Trigger -->
+            <a class='category-dropdown-btn dropdown-button btn transparent' href='#' data-target='dropdown2'>
+                <span>Category</span>
+                <i class="material-icons right">keyboard_arrow_down</i>
+            </a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown2' class='dropdown-content category-dropdown-content'>
+                <li>
+                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings,cityscape,commercial">
+                        <strong>All</strong>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings">
+                        <strong>Weddings</strong>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=cityscape">
+                        <strong>Cityscape</strong>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=commercial">
+                        <strong>Commercial</strong>
+                    </a>
+                </li>
+            </ul>
+        </span>
     </div>
-        <div class="row center product-category-buttons">
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=weddings,cityscape,commercial">
-                <strong>All</strong>
-            </a>
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=weddings">
-                <strong>Weddings</strong>
-            </a>
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=cityscape">
-                <strong>Cityscape</strong>
-            </a>
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=commercial">
-                <strong>Commercial</strong>
-            </a>
-        </div>
 </section>
 
 <section class="section">
     <div class="container">
         <div class="row">
-            {{ projects }}
+            {% for project in projects %}
+            <div class="col s12 m6">
+                    <div class="card portfolio-card">
+                        <div class="card-content">
+                            <div class="portfolio-image">
+                                {% if project.image %}
+                                    <a href="">
+                                        <img class="responsive-img image-img" src="{{ project.image.url }}" alt="{{ project.name }}">
+                                    </a>
+                                    
+                                {% else %}
+                                    <a href="" >
+                                        <img class="center-align image-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ project.name }}">
+                                    </a>
+                                {% endif %}
+                                <div class="image-overlay">
+                                    <div class="card-title">{{ project.descriptive_name }}</div>
+                                </div>
+                            </div>
+                            <div class="row product-size">
+                                <span>{{ project.location }}</span>  |  
+                                <span><strong>{{ project.date }}</strong></span>
+                            </div>
+                            {% if request.user.is_superuser %}
+                                <div>
+                                    <a class="waves-effect waves-light btn-small edit-btn transparent" href="">Edit</a>
+                                    <a class="waves-effect waves-light btn-small delete-btn transparent" href="">Delete</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>
-<section class="container delivery-banner-container">
-    <div class="delivery-banner white-text row">
-        <p class="">Think we would be a good fit to work together? Why not get in touch?</p>
-        <a class="btn waves-effect waves-light" href="#">Get In Touch</a>
+<section class="container">
+    <div class=" row center">
+        <h6 class="">Think we would be a good fit to work together? Why not get in touch?</h6>
+        <div class="btn waves-effect waves-light">
+            <a class="btn " href="#">Get In Touch</a>
+            <i class="material-icons right"><strong>chevron_right</strong></i>
+        </div>
     </div>
 </section>
 

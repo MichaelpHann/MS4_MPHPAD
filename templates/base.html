@@ -50,7 +50,7 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <ul class="hide-on-med-and-down">
-                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
                     <li><a href="{% url 'products' %}">Shop</a></li>
                     <li><a href="#">Contact</a></li>
                     {% if request.user.is_authenticated %}
@@ -66,7 +66,8 @@
                                 <li><a href="{% url 'profile' %}">Profile</a></li>
                                 <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
                                 {% if request.user.is_superuser %}
-                                    <li><a href="{% url 'add_product' %}">Product Management</a></li>
+                                    <li><a href="{% url 'add_product' %}">Product Admin</a></li>
+                                    <li><a href="{% url 'add_project' %}">Portfolio Admin</a></li>
                                 {% endif %}
                             </ul>
                         </li>
@@ -81,7 +82,7 @@
         <!-- mobile sidenav -->
         <ul class="sidenav" id="mobile-links">
             <li class="center-align"><h4>M P H</h4></li>
-                <li><a href="#">Portfolio</a></li>
+                <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
                 <li><a href="{% url 'products' %}">Shop</a></li>
                 <li><a href="#">Contact</a></li>
                 {% if request.user.is_authenticated %}
@@ -89,7 +90,8 @@
                     <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
                     {% if request.user.is_superuser %}
                         <hr>
-                        <li><a href="{% url 'add_product' %}">Product Management</a></li>
+                        <li><a href="{% url 'add_product' %}">Product Admin</a></li>
+                        <li><a href="{% url 'add_project' %}">Portfolio Admin</a></li>
                     {% endif %}
                 {% else %}
                     <li class="right"><a href="{% url 'account_login' %}">Sign In</a></li>

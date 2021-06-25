@@ -13,24 +13,40 @@
         <p class="delivery-banner-text valign-wrapper">Free delivery available on orders over £{{ free_delivery_threshold }}!</p>
     </div>
 </section>
-<section class="container" id="shop-catgory-filter">
-    <div class="row filter-category-text">
-        <h5 class="center flow-text">Filter by Category</h5>
+<section class="container" id="shop-category-filter">
+    <div class="row filter-product-category-text center-align">
+        <span class="products-filter-by-direction"><strong>Filter by</strong></span>
+        <span>
+            <!-- Dropdown Trigger -->
+            <a class='category-dropdown-btn dropdown-button btn transparent' href='#' data-target='dropdown2'>
+                <span>Category</span>
+                <i class="material-icons right">keyboard_arrow_down</i>
+            </a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown2' class='dropdown-content product-dropdown-content'>
+                <li>
+                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape,portrait,cityscape">
+                        <strong>All</strong>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape">
+                        <strong>Landscape</strong>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=portrait">
+                        <strong>Portrait</strong>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=cityscape">
+                        <strong>Cityscape</strong>
+                    </a>
+                </li>
+            </ul>
+        </span>
     </div>
-        <div class="row center product-category-buttons">
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape,portrait,cityscape">
-                <strong>All</strong>
-            </a>
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape">
-                <strong>Landscape</strong>
-            </a>
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=portrait">
-                <strong>Portrait</strong>
-            </a>
-            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=cityscape">
-                <strong>Cityscape</strong>
-            </a>
-        </div>
 </section>
 
 <section class="section">
@@ -39,7 +55,7 @@
             {% for product in products %}
                 <div class="col s12 m4">
                     <div class="card product-card">
-                        <div class="card-content product-card">
+                        <div class="card-content">
                             <div class="card-image">
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}">
