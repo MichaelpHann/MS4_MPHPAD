@@ -72,8 +72,8 @@
                             </div>
                             {% if request.user.is_superuser %}
                                 <div>
-                                    <a class="waves-effect waves-light btn-small edit-btn transparent" href="">Edit</a>
-                                    <a class="waves-effect waves-light btn-small delete-btn transparent" href="">Delete</a>
+                                    <a class="waves-effect waves-light btn-small edit-btn transparent" href="{% url 'edit_project' project.id %}">Edit</a>
+                                    <a class="waves-effect waves-light btn-small delete-btn transparent" href="{% url 'delete_project' project.id %}">Delete</a>
                                 </div>
                             {% endif %}
                         </div>
