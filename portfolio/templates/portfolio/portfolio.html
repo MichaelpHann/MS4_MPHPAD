@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="shop-banner" id="shop-banner">
+    <div class="container">
+            <h4 class="center">PORTFOLIO</h4>
+            <hr>
+    </div>
+</section>
+<section class="container" id="shop-catgory-filter">
+    <div class="row filter-category-text">
+        <h5 class="center flow-text">Filter by Category</h5>
+    </div>
+        <div class="row center product-category-buttons">
+            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=weddings,cityscape,commercial">
+                <strong>All</strong>
+            </a>
+            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=weddings">
+                <strong>Weddings</strong>
+            </a>
+            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=cityscape">
+                <strong>Cityscape</strong>
+            </a>
+            <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=commercial">
+                <strong>Commercial</strong>
+            </a>
+        </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            {{ projects }}
+        </div>
+    </div>
+</section>
+<section class="container delivery-banner-container">
+    <div class="delivery-banner white-text row">
+        <p class="">Think we would be a good fit to work together? Why not get in touch?</p>
+        <a class="btn waves-effect waves-light" href="#">Get In Touch</a>
+    </div>
+</section>
+
+{% endblock %}
+

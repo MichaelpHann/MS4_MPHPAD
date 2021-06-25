@@ -6,6 +6,9 @@ from .forms import ProductForm
 
 
 def all_products(request):
+    """
+    A view to show all products, including ability to search
+    """
     products = Product.objects.all()
     categories = None
 
