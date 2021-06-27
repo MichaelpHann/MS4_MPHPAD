@@ -548,13 +548,53 @@ input.reset-btn-input {
 
 /* _____Homepage_____ */
 
-.slider-main {
-    height: 80vh;
+/* .slider-main {
+    height: 600px;
+    width: 100%;
 }
 
 .slider .slides-main {
+    height: 600px;
+    width: 100%;
+} */
+
+.slider .slides {
+    background-color: transparent;
+    margin: 0;
     height: 80vh;
 }
+
+.slider .slides li img {
+    width: 100%;
+    background-repeat: no-repeat;
+    object-fit: center;
+}
+
+@media only screen and (max-width: 667px) {
+        .slides {
+            height: 80vh !important;
+        }
+
+        .slider {
+            height: 80vh !important;
+        
+        }
+        .parallax-container {
+            max-height: 220px;
+        }
+}
+
+@media only screen and (min-width: 1905px) {
+          .slides {
+            height: 85vh !important;
+          }
+            .slider {
+                 height: 85vh !important;
+            }
+            .parallax-container {
+            height: 380px;
+        }
+        }
 
 .about-me-section {
     padding: 50px 0;
@@ -777,7 +817,8 @@ div.image-overlay-title {
 
 .product-card .card-image .card-title {
     padding: 0 0 0 10px;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 300;
     color: #fff;
 }
 

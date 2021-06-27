@@ -27,7 +27,7 @@
             <!-- Dropdown Structure -->
             <ul id='dropdown2' class='dropdown-content product-dropdown-content'>
                 <li>
-                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape,portrait,cityscape">
+                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape,portrait,city life">
                         <strong>All</strong>
                     </a>
                 </li>
@@ -37,8 +37,8 @@
                     </a>
                 </li>
                 <li>
-                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=portrait">
-                        <strong>Portrait</strong>
+                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=city life">
+                        <strong>City Life</strong>
                     </a>
                 </li>
                 <li>
@@ -63,7 +63,7 @@
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                     </a>
-                                    <span class="card-title">{{ product.descriptive_name }}</span>
+                                    <span class="card-title product-descriptive-name">{{ product.descriptive_name }}</span>
                                 {% else %}
                                     <a href="{% url 'product_detail' product.id %}" >
                                         <img class="center-align" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
