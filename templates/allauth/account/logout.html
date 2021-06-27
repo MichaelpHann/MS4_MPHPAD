@@ -1,12 +1,14 @@
 {% extends "account/base.html" %}
 
+{% block extra_title %}Sign Out{% endblock %}
+
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block inner_content %}
 <div class="container">
-    <h4 class="center signout-header">{% trans "Sign Out" %}</h4>
+    <h4 class="center allauth-header">{% trans "Sign Out" %}</h4>
     <hr>
 
     <h6 class="signout-question">{% trans 'Are you sure you want to sign out?' %}</h6>
@@ -16,9 +18,9 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
-        <button class="btn transparent waves-effect waves-light sign-out-btn" type="submit">
-            <strong>{% trans 'Sign Out' %}</strong>
-            <i class="material-icons right"><strong>chevron_right</strong></i>
+        <button class="btn waves-effect waves-light sign-out-btn" type="submit">
+            {% trans 'Sign Out' %}
+            <i class="material-icons right">chevron_right</i>
         </button>
     </form>
 </div>

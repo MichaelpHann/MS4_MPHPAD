@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}Shop{% endblock %}
+
 {% block custom_header_class %}
 {% endblock %}
 
@@ -34,8 +36,8 @@
                     </div>
                     {% if request.user.is_superuser %}
                         <div class="product-detail-adj-btns">
-                            <a class="waves-effect waves-light btn-small edit-btn transparent" href="{% url 'edit_product' product.id %}">Edit</a>
-                            <a class="waves-effect waves-light btn-small delete-btn transparent" href="{% url 'delete_product' product.id %}">Delete</a>
+                            <a class="waves-effect waves-light edit-btn transparent" href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a class="waves-effect waves-light delete-btn transparent" href="{% url 'delete_product' product.id %}">Delete</a>
                         </div>
                     {% endif %}
                     <div class="row">

@@ -25,7 +25,7 @@
     {% endblock %}
     {% block extra_css %}{% endblock %}
     
-    <title>M P H - {% block extra_title %}{% endblock %}</title>
+    <title>M P H Photography - {% block extra_title %}{% endblock %}</title>
 
 </head>
 <body>
@@ -34,7 +34,7 @@
         <nav class="nav-wrapper white">
             <div class="container nav-container">
                 <a href="{% url 'home' %}" class="brand-logo center">
-                    <img src="{% static 'img/mph_logo.png' %}" alt="" width="64" height="64">
+                    <img src="{% static 'img/mph_logo_1.png' %}" alt="" width="130" height="78">
                 </a>
                 <a class="active right shopping-bag" href="{% url 'view_bag' %}">
                             <span><i class="fas fa-shopping-bag"></i></span>
@@ -52,7 +52,7 @@
                 <ul class="hide-on-med-and-down">
                     <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
                     <li><a href="{% url 'products' %}">Shop</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                     {% if request.user.is_authenticated %}
                         <li class="right">
                             <!-- Dropdown Trigger -->
@@ -84,7 +84,7 @@
             <li class="center-align"><h4>M P H</h4></li>
                 <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
                 <li><a href="{% url 'products' %}">Shop</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
@@ -104,7 +104,7 @@
 
     
     <main>
-        {% include 'includes/messages.html' %}
+        {% include './messages.html' %}
         {% block content %}
         {% endblock %}
     </main>

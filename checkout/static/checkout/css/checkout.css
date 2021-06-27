@@ -20,22 +20,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background:rgba(255, 143, 234, 0.75);
+    background:rgba(255, 248, 143, 0.75);
     z-index: 9999;
-}
-
-.loading-spinner {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin: 0;
-    height: 100%;
 }
 
 select,
@@ -98,7 +84,7 @@ input#id-save-info.form-check-input:[type="checkbox" i]:checked {
 }
 
 .adjust-bag-btn {
-    background-color: rgba(212, 203, 76, 0.788);
+    background-color: #e2c14d;
     color: #000000;
     font-size: 15px;
     -webkit-box-shadow: none;
@@ -108,7 +94,7 @@ input#id-save-info.form-check-input:[type="checkbox" i]:checked {
 }
 
 .adjust-bag-btn:hover {
-    background-color: rgba(192, 185, 82, 0.788);
+    background-color: #dbbc4b;
     border: 1px solid rgb(94, 92, 92);
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -117,9 +103,9 @@ input#id-save-info.form-check-input:[type="checkbox" i]:checked {
 .complete-order-btn {
     margin-left: 5px;
     padding: 0 12px;
-    background-color: none;
-    background: transparent;
-    color: #0b246ed8;
+    background-color: #657d81;
+    /* background: transparent; */
+    color: #fff;
     -webkit-box-shadow: none;
             box-shadow: none;
     border: 1px solid rgb(185, 182, 182);
@@ -127,7 +113,7 @@ input#id-save-info.form-check-input:[type="checkbox" i]:checked {
 }
 
 .complete-order-btn:hover {
-    background-color: #0c1636bd;
+    background-color: #5e7579;
     color: #fff;
     border: 1px solid rgb(94, 92, 92);
     -webkit-box-shadow: none;

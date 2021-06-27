@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}Portfolio{% endblock %}
+
 {% block content %}
 <section class="shop-banner" id="shop-banner">
     <div class="container">
@@ -50,7 +52,7 @@
             {% for project in projects %}
             <div class="col s12 m6">
                     <div class="card portfolio-card">
-                        <div class="card-content">
+                        <!-- <div class="card-content"> -->
                             <div class="portfolio-image">
                                 {% if project.image %}
                                     <a href="">
@@ -63,7 +65,7 @@
                                     </a>
                                 {% endif %}
                                 <div class="image-overlay">
-                                    <div class="card-title">{{ project.descriptive_name }}</div>
+                                    <div class="card-title image-overlay-title">{{ project.descriptive_name }}</div>
                                 </div>
                             </div>
                             <div class="row product-size">
@@ -72,24 +74,25 @@
                             </div>
                             {% if request.user.is_superuser %}
                                 <div>
-                                    <a class="waves-effect waves-light btn-small edit-btn transparent" href="{% url 'edit_project' project.id %}">Edit</a>
-                                    <a class="waves-effect waves-light btn-small delete-btn transparent" href="{% url 'delete_project' project.id %}">Delete</a>
+                                    <a class="waves-effect waves-light edit-btn transparent" href="{% url 'edit_project' project.id %}">Edit</a>
+                                    <span> | </span>
+                                    <a class="waves-effect waves-light delete-btn transparent" href="{% url 'delete_project' project.id %}">Delete</a>
                                 </div>
                             {% endif %}
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
 </section>
-<section class="container">
+<section class="container portfolio-contact-section">
     <div class=" row center">
-        <h6 class="">Think we would be a good fit to work together? Why not get in touch?</h6>
-        <div class="btn waves-effect waves-light">
-            <a class="btn " href="#">Get In Touch</a>
-            <i class="material-icons right"><strong>chevron_right</strong></i>
-        </div>
+        <h6 class="portfolio-contact-text">Think we would be a good fit to work together? Let's chat...</h6>
+        <a href="{% url 'contact' %}" class="btn contact-btn waves-effect waves-light">
+            <span class="text-uppercase">Get In Touch</span>
+            <i class="material-icons right">chevron_right</i>
+        </a>
     </div>
 </section>
 

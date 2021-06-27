@@ -1,5 +1,7 @@
 {% extends "account/base.html" %}
 
+{% block extra_title %}Sign In{% endblock %}
+
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -8,7 +10,7 @@
 {% block inner_content %}
 
 <div class="container">
-    <h4 class="center signin-header">{% trans "Sign In" %}</h4>
+    <h4 class="center allauth-header">{% trans "Sign In" %}</h4>
     <hr>
 
     <div class="container">
@@ -32,29 +34,27 @@
     {% include "socialaccount/snippets/login_extra.html" %}
 
     {% else %}
-    <h6 class="signin-directions">{% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</h6>
+        <h6 class="signin-directions">{% blocktrans %}If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</h6>
     {% endif %}
-
-    <form class="login" method="POST" action="{% url 'account_login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <div class="btn waves-effect waves-light home-btn">
-        <a href="{% url 'home' %}"><strong>Home</strong></a>
-        <i class="material-icons right"><strong>chevron_right</strong></i>
-    </div>
-    <button class="primaryAction btn signin-btn waves-effect waves-light transparent" type="submit">
-        <strong>{% trans "Sign In" %}</strong>
-        <i class="material-icons right"><strong>chevron_right</strong></i>
-    </button>
-    <p>
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-    </p>
-    
-    </form>
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+                nput type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <div class="btn waves-effect waves-light home-btn">
+                <a href="{% url 'home' %}"><strong>Home</strong></a>
+                <i class="material-icons right"><strong>chevron_right</strong></i>
+            </div>
+            <button class="primaryAction btn signin-btn waves-effect waves-light" type="submit">
+                {% trans "Sign In" %}
+                <i class="material-icons right">chevron_right</i>
+            </button>
+            <p>
+                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            </p>
+        </form>
     </div>
 </div>
 

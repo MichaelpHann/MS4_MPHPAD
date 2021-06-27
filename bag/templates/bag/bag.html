@@ -2,6 +2,8 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_title %}Shopping Bag{% endblock %}
+
 {% block content %}
     <section class="shopping-bag-banner" id="shopping-bag-banner">
     <div class="container">
@@ -46,17 +48,29 @@
                                             <div class="row bag-quantity-row">
                                                 <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                                     {% csrf_token %}
+                                                    <div class="input-group qty_input"></div>
                                                     <input class="right-align" type="number"
                                                     name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                    data-item_id="{{ product.id }}"
-                                                    id="id_qty_{{ product.id }}">
+                                                    data-item_id="{{ item.item_id }}"
+                                                    id="id_qty_{{ item.item_id }}">
+                                                    <button class="decrement-qty btn btn-sm form-button rounded-5" 
+                                                        data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                        <span><i class="fas fa-minus fa-sm"></i></span>
+                                                    </button>
+                                                    <button class="increment-qty btn btn-sm form-button rounded-5"
+                                                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                    <span>
+                                                    <i class="fas fa-plus fa-sm"></i>
+                                                    </span>
+                                                    </button>
+                                                    </div>
                                                 </form>
                                             </div>
                                             <div class="row bag-adjust-btns">
-                                                <a class="update-link text-info btn btn-small update-item-btn transparent">
+                                                <a class="update-link text-info update-item-btn transparent">
                                                     <small>Update</small>
                                                 </a>
-                                                <a class="remove-item btn btn-small remove-item-btn transparent" id="remove_{{ item.item_id }}">
+                                                <a class="remove-item remove-item-btn transparent" id="remove_{{ item.item_id }}">
                                                     <small>Remove</small>
                                                 </a>
                                             </div>
@@ -99,7 +113,7 @@
                                 <td colspan="5" class="right-align shopping-bag-btns">
                                     <a href="{% url 'products' %}" class="btn-small keep-shopping-btn waves-effect waves-light">
                                         <span class="text-uppercase">Keep Shopping</span>
-                                        <i class="material-icons right"><strong>chevron_right</strong></i>
+                                        <i class="material-icons right">chevron_right</i>
                                     </a>
                                 </td>
                             </tr>
@@ -118,7 +132,28 @@
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
     <script>
+    // Increment quantity
+    $('.increment-qty').click(function(e) {
+       e.preventDefault();
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       var currentValue = parseInt($(closestInput).val());
+       $(closestInput).val(currentValue + 1);
+       var itemId = $(this).data('item_id');
+       handleEnableDisable(itemId);
+    });
+
+    // Decrement quantity
+    $('.decrement-qty').click(function(e) {
+       e.preventDefault();
+       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       var currentValue = parseInt($(closestInput).val());
+       $(closestInput).val(currentValue - 1);
+       var itemId = $(this).data('item_id');
+       handleEnableDisable(itemId);
+    });
+
     // Update quantity on click
     $(".update-link").click(function (e) {
     var form = $(this).prev(".update-form");

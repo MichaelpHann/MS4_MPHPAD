@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}Portfolio Admin{% endblock %}
+
 {% block content %}
     <section class="section container">
             <div class="row center">
-                <h4>PROJECT ADMIN</h4>
+                <h4>PORTFOLIO ADMIN</h4>
                 <hr>
                 <h6>Edit a Project</h6>
             </div>
@@ -15,8 +17,14 @@
                                 {% csrf_token %}
                                 {{ form }}
                                 <div class="right-align">
-                                    <a class="btn" href="{% url 'portfolio' %}">Cancel</a>
-                                    <button class="btn" type="submit">Update Project</button>
+                                    <a class="btn btn-small cancel-edit-project-btn waves-effect waves-light" href="{% url 'portfolio' %}">
+                                        <span class="text-uppercase">Cancel</span>
+                                        <i class="material-icons right">chevron_right</i>
+                                    </a>
+                                    <button class="btn btn-small edit-project-btn waves-effect waves-light" type="submit">
+                                        <span>Update Project</span>
+                                        <i class="material-icons right">chevron_right</i>
+                                    </button>
                                 </div>
                         </form>
                     </div>

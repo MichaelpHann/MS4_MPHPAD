@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}Profile{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
@@ -24,7 +26,10 @@
                         {{ form.default_postcode }}
                         {{ form.default_country }}
                         <div class="row center-align">
-                            <button class="btn update-profile-info-btn waves-effect waves-light">Update Information</button>
+                            <button class="btn update-profile-info-btn waves-effect waves-light">
+                                <span>Update Information</span>
+                                <i class="material-icons right">chevron_right</i>
+                            </button>
                         </div>
                     </form>
                 </div>

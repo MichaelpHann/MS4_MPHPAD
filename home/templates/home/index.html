@@ -1,111 +1,109 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %}Home{% endblock %}
+
 {% block content %}
-<section class="slider slider-main">
-                <ul class="slides slides-main">
-                <li>
-                    <img src="{% static 'img/city.jpeg' %}" alt="">
-                    <div class="caption center-align">
-                    <a href="#" class="btn btn-large">Learn More</a>
-                    </div>
-                </li>
-                <li>
-                    <img src="{% static 'img/statue_of_liberty1.png' %}" alt="">
-                    <div class="caption left-align">
-                    <a href="#" class="btn btn-large">Learn More</a>
-                    </div>
-                </li>
-                <li>
-                    <img src="{% static 'img/statue_of_liberty1.png' %}" alt="">
-                    <div class="caption right-align">
-                    <a href="#" class="btn btn-large">Learn More</a>
-                    </div>
-                </li>
-                </ul>
-</section>
+    <section class="slider slider-main">
+        <ul class="slides slides-main">
+            <li>
+                <img src="{% static 'img/city.jpeg' %}" alt="">
+            </li>
+            <li>
+                <img src="{% static 'img/statue_of_liberty1.png' %}" alt="">
+            </li>
+            <li>
+                <img src="{% static 'img/statue_of_liberty1.png' %}" alt="">
+            </li>
+        </ul>
+    </section>
 
-<section class="container section scrollspy" id="about-me">
-    <div class="row">
-        <div class="col s12 l5">
-            <h4 class="indigo-text-darken-4">About me...</h4>
-            <p>Nulla sodales hendrerit urna, at imperdiet enim porttitor vel. Cras et egestas quam. Sed libero urna, sagittis eget dignissim in, aliquet eu nibh. Nunc nec lobortis augue. Maecenas ornare convallis varius. Nam gravida nisl aliquet, suscipit orci non, sodales diam. Donec vel tincidunt odio, fringilla aliquam ipsum.</p>
-        </div>
-        <div class="col s12 l6 offset-l1">
-            <ul class="tabs">
-                <li class="tab col s6">
-                    <a clas="flow-text" href="#weddings">Weddings</a>
-                </li>
-                <li class="tab col s6">
-                    <a clas="" href="#lifestyle">Lifestyle</a>
-                </li>
-            </ul>
-            <div class="col s12" id="weddings">
-                <p class="flow-text">Weddings</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc ligula, posuere vel ultrices a, varius in urna. Duis pretium tortor nec ligula mollis, nec commodo risus tempus. Sed dictum id tellus eu mattis.</p>
+    <section class="container about-me-section" id="about-me">
+        <div class="row about-me-section-row">
+            <div class="col s12 l7 about-me-background-col">
+                <h5 class="about-me-header">Hi there! I'm Michael...</h5>
+                <p>For the past 10 years I have been shooting weddings, portraits and beautiful scenery and I truly love what I do. I’m a Northern Irish photographer based in Belfast but I love connecting with people through my camera across the world.</p>
+                <h6>Thanks for stopping by!</h6>
             </div>
-            <div class="col s12" id="lifestyle">
-                <p class="flow-text">Lifestyle</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc ligula, posuere vel ultrices a, varius in urna. Duis pretium tortor nec ligula mollis, nec commodo risus tempus. Sed dictum id tellus eu mattis.</p>
+            <div class="col s12 l4 offset-l1">
+                <div class="row center about-me-direction-text">
+                <h5 class="center">Find out a little more about what I do....</h5>
+                </div>
+                <div class="row center">
+                <a href="#workflow" class="center">
+                    <i class="fas fa-angle-double-down"></i>
+                </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<div class="parallax-container">
-    <div class="">
-        <img src="{% static 'img/wedding-couple-forrest.jpg' %}" alt="" class="responsive-img">
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="{% static 'img/wedding-couple-background.jpg' %}" alt="" class="responsive-img">
+        </div>
     </div>
-</div>
 
-<section class="container section workflow-section">
-    <div class="row">
-        <div class="col s12 l5">
-            <img class="responsive-img materialboxed" src="{% static 'img/wedding-couple-background.jpg' %}" alt="wedding_lights_img">
+    <section class="container section workflow-section scrollspy" id="workflow">
+        <div class="row">
+            <div class="col s12 l5">
+                <img class="responsive-img materialboxed" src="{% static 'img/mph_wedding_sparklers.jpeg' %}" alt="wedding_lights_img">
+            </div>
+            <div class="col s12 l7">
+                <h4 class="workflow-subheader">Weddings</h4>
+                <p>If you’ve made it here, chances are you’re getting married. <strong>Congratulations</strong>, you guys are obviously pretty fond of each other. I’m gonna go out on a limb and say if you’ve found your way to our little digital space, then you’re probably not after a traditional  wedding photographer. It doesn’t matter the style of wedding you’re having whether that’s a church wedding, city hall wedding or eloping on the side of a cliff, I shoot life and love in all its forms.</p>
+            </div>
         </div>
-        <div class="col s12 l6 offset-l1">
-            <h2 class="">Before</h2>
-            <p>bousbgsgs</p>
+        <div class="row">
+            <div class="col s12 l5 push-l7">
+                <img class="responsive-img materialboxed" src="{% static 'img/mph_family_portrait.jpeg' %}" alt="portrait_img">
+            </div>
+            <div class="col s12 l7 pull-l5 right-align">
+                <h4 class="workflow-subheader">Family Portraits</h4>
+                <p>Family is just the most special thing. In my own life, I want to celebrate that as often as I can. I understand how fast the time passes and just how precious the memories are. Since starting our family, documenting them develop and grow has become increasingly important. I never want to forget how they were! I’d love to be able to do the same for you.</p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s12 l5 push-l7 offset-l1">
-            <img class="responsive-img materialboxed" src="{% static 'img/city.jpeg' %}" alt="portrait_img">
+        <div class="row">
+            <div class="col s12 l5">
+                <img class="responsive-img materialboxed" src="{% static 'img/nature.jpeg' %}" alt="portrait_img">
+            </div>
+            <div class="col s12 l7">
+                <h4 class="workflow-subheader">Headshots</h4>
+                <p>A headshot is more valuable today than it ever has been. It provides instant brand recognition across multiple platforms online like LinkedIn or Twitter etc. I’ve photographed many people, from CEOs to podcast hosts, local business people to social media influencers. I’d love to create your next headshot, either on location or in my Belfast Studio.</p>
+            </div>
         </div>
-        <div class="col s12 l6 pull-l5 right-align">
-            <h2 class="">During</h2>
-            <p>bousbgsgs</p>
+        <div class="row">
+            <div class="col s12 l5 push-l7">
+                <img class="responsive-img materialboxed" src="{% static 'img/city.jpeg' %}" alt="portrait_img">
+            </div>
+            <div class="col s12 l7 pull-l5 right-align">
+                <h4 class="workflow-subheader">Creative Commercial</h4>
+                <p>Your first class product or service deserves a first class image. From high-quality packshots to full production images for advertising, social media such as Instagram and websites, I enjoy working with a range of businesses to guide them through the process of achieving those perfect images. Most importantly, images that sell. I’ve built a strong commercial portfolio spanning interiors, food and drinks, jewellery, fashion and cosmetics industries. </p>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s12 l5">
-            <img class="responsive-img materialboxed" src="{% static 'img/nature.jpeg' %}" alt="portrait_img">
-        </div>
-        <div class="col s12 l6 offset-l1">
-            <h2 class="">After</h2>
-            <p>bousbgsgs</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<div class="parallax-container">
-    <div class="parallax">
-        <img src="{% static 'img/background-lights.jpg' %}" alt="" class="responsive-img">
-    </div>
-</div>
-
-<section class="container section">
-    <div class="row">
-        <div class="col s12 m6">
-            <h2>Get In Touch</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam iure id, sed pariatur dolor ipsa harum perspiciatis. Earum, officia laboriosam omnis quisquam, ad, voluptatibus repudiandae ea facere dolorum quos porro.</p>
-        </div>
-        <div class="col s12 m5 offset-m1">
-            <h4>LINK TO CONTACT PAGE</h4>
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="{% static 'img/background-lights.jpg' %}" alt="" class="responsive-img">
         </div>
     </div>
-</section>
 
-    
+    <section class="container section contact-section" id="contact-section">
+        <div class="row contact-header-row">
+            <h4 class="contact-header">Let's chat...</h4>
+        </div>
+        <div class="row">
+            <div class="col s12 m6">
+                <p class="contact-text">If you like what you see and think we'd be a good fit then feel free to drop me a line!</p>
+            </div>
+            <div class="col s12 m5 offset-m1 center contact-btn-col">
+                <a href="{% url 'contact' %}" class="btn-large contact-btn waves-effect waves-light">
+                    <span class="text-uppercase">Get In Touch</span>
+                    <i class="material-icons right">chevron_right</i>
+                </a>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
