@@ -29,4 +29,4 @@ def contact(request):
 
 def email_success(request):
 
-    return render(request, "contact/contact_success.html")
+    return render(request, "contact/email_success.html")
