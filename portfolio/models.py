@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class ProjectCategory(models.Model):
 
     class Meta:

@@ -15,7 +15,6 @@ class StripeWH_Handler:
     """
     Handle stripe webhooks
     """
-
     def __init__(self, request):
         self.request = request
 
@@ -37,7 +36,7 @@ class StripeWH_Handler:
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
         )
-    
+
     def handle_event(self, event):
         """
         Handle a generic/unknown/unexpected webhook event
@@ -78,7 +77,7 @@ class StripeWH_Handler:
                 profile.default_street_address2 = shipping_details.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
-        
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -143,7 +142,7 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
- 
+
     def handle_payment_intent_payment_failed(self, event):
         """
         Handle the payment_intent.payment_failed webhook from Stripe

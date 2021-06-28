@@ -57,26 +57,25 @@
                             </div>
                             </div>
                             {% endfor %}
-
                             <!-- Delivery Address -->
                             <div class="row checkout-success-info-header-row">
-                            <div class="col s12">
-                                <h4 class="checkout-success-info-header">Delivering To:</h4>
-                                <hr>
-                            </div>
-                            </div>
-                            <div class="row checkout-success-info-row">
-                            <div class="col s12 m4">
-                                <h6 class="checkout-success-info-category">Full Name</h6>
-                            </div>
-                            <div class="col s12 m8">
-                                <p class="checkout-success-info-data">{{ order.full_name }}</p>
-                            </div>
+                                <div class="col s12">
+                                    <h4 class="checkout-success-info-header">Delivering To:</h4>
+                                    <hr>
+                                </div>
                             </div>
                             <div class="row checkout-success-info-row">
-                            <div class="col s12 m4">
-                                <h6 class="checkout-success-info-category">Address 1</h6>
+                                <div class="col s12 m4">
+                                    <h6 class="checkout-success-info-category">Full Name</h6>
+                                </div>
+                                <div class="col s12 m8">
+                                    <p class="checkout-success-info-data">{{ order.full_name }}</p>
+                                </div>
                             </div>
+                            <div class="row checkout-success-info-row">
+                                <div class="col s12 m4">
+                                    <h6 class="checkout-success-info-category">Address 1</h6>
+                                </div>
                             <div class="col s12 m8">
                                 <p class="checkout-success-info-data">{{ order.street_address1 }}</p>
                             </div>
@@ -170,21 +169,21 @@
                     </div>
                 </div>
             </div>
-                <div class="row">
-                    <div class="col s12 center">
-                        {% if from_profile %}
-                            <a href="{% url 'profile' %}" class="btn btn-small keep-shopping-btn waves-effect waves-light">
-                                <span class="text-uppercase">Back to Profile</span>
-                                <i class="material-icons right">chevron_right</i>
-                            </a>
-                        {%  else %}
-                        <a href="{% url 'products' %}" class="btn btn-small keep-shopping-btn waves-effect waves-light">
-                            <span class="text-uppercase">Back to Shop</span>
+            <div class="row">
+                <div class="col s12 center">
+                    {% if from_profile %}
+                        <a href="{% url 'profile' %}" class="btn btn-small keep-shopping-btn waves-effect waves-light">
+                            <span class="text-uppercase">Back to Profile</span>
                             <i class="material-icons right">chevron_right</i>
                         </a>
-                        {% endif %}
-                    </div>
+                    {%  else %}
+                    <a href="{% url 'products' %}" class="btn btn-small keep-shopping-btn waves-effect waves-light">
+                        <span class="text-uppercase">Back to Shop</span>
+                        <i class="material-icons right">chevron_right</i>
+                    </a>
+                    {% endif %}
                 </div>
+            </div>
     </section>
 {% endblock %}
 

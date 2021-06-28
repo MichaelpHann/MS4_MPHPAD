@@ -9,70 +9,68 @@
 
 {% block content %}
     <section class="container ">
-            <div class="row">
-                <h4 class="center">MY PROFILE</h4>
-                <hr>
-            </div>
-            <div class="row profile-container">
-                <div class="col s12 m6">
-                    <h5 class="default-delivery-header">Default Delivery Information</h5>
-                    <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                        {% csrf_token %}
-                        {{ form.default_phone_number }}
-                        {{ form.default_street_address1 }}
-                        {{ form.default_street_address2 }}
-                        {{ form.default_town_or_city }}
-                        {{ form.default_county }}
-                        {{ form.default_postcode }}
-                        {{ form.default_country }}
-                        <div class="row center-align">
-                            <button class="btn update-profile-info-btn waves-effect waves-light">
-                                <span>Update Information</span>
-                                <i class="material-icons right">chevron_right</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col s12 m6 order-history-container">
-                    <h5 class="order-history-header">Order History</h5>
-                    <div class="order-history">
-                        <table class="striped">
-                            <thead>
-                                <tr>
-                                    <th class="col s3" scope="col"><p><strong>Order Number</strong></p></th>
-                                    <th class="col s3 right-align" scope="col"><p><strong>Date</strong></p></th>
-                                    <th class="col s3 right-align" scope="col"><p><strong>Items</strong></p></th>
-                                    <th class="col s3 right-align" scope="col"><p><strong>Order Total</strong></p></th>
-                                </tr>
-                            </thead>
-                            {% for order in orders %}
-                                <tr class="order-summary-row">
-                                    <td class="col s3">
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td class="col s3 right-align">{{ order.date }}</td>
-                                    <td class="col s3 right-align">
-                                        <ul class="order-summary-items list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                            <li class="small">
-                                                {{ item.product.name }} x{{ item.quantity }}
-                                            </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td class="col s3 right-align">{{ order.grand_total }}</td>
-                                </tr>
-                            {% endfor %}
-                        </table>
+        <div class="row">
+            <h4 class="center">MY PROFILE</h4>
+            <hr>
+        </div>
+        <div class="row profile-container">
+            <div class="col s12 m6">
+                <h5 class="default-delivery-header">Default Delivery Information</h5>
+                <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form.default_phone_number }}
+                    {{ form.default_street_address1 }}
+                    {{ form.default_street_address2 }}
+                    {{ form.default_town_or_city }}
+                    {{ form.default_county }}
+                    {{ form.default_postcode }}
+                    {{ form.default_country }}
+                    <div class="row center-align">
+                        <button class="btn update-profile-info-btn waves-effect waves-light">
+                            <span>Update Information</span>
+                            <i class="material-icons right">chevron_right</i>
+                        </button>
                     </div>
+                </form>
+            </div>
+            <div class="col s12 m6 order-history-container">
+                <h5 class="order-history-header">Order History</h5>
+                <div class="order-history">
+                    <table class="striped">
+                        <thead>
+                            <tr>
+                                <th class="col s3" scope="col"><p><strong>Order Number</strong></p></th>
+                                <th class="col s3 right-align" scope="col"><p><strong>Date</strong></p></th>
+                                <th class="col s3 right-align" scope="col"><p><strong>Items</strong></p></th>
+                                <th class="col s3 right-align" scope="col"><p><strong>Order Total</strong></p></th>
+                            </tr>
+                        </thead>
+                        {% for order in orders %}
+                            <tr class="order-summary-row">
+                                <td class="col s3">
+                                    <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}">
+                                        {{ order.order_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td class="col s3 right-align">{{ order.date }}</td>
+                                <td class="col s3 right-align">
+                                    <ul class="order-summary-items list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                        <li class="small">
+                                            {{ item.product.name }} x{{ item.quantity }}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td class="col s3 right-align">{{ order.grand_total }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
-            {{ profile }}
+        </div>
     </section>
-    
 {% endblock %}
 
 {% block postloadjs %}

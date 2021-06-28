@@ -4,67 +4,65 @@
 {% block extra_title %}Portfolio{% endblock %}
 
 {% block content %}
-<section class="shop-banner" id="shop-banner">
-    <div class="container">
+    <section class="shop-banner" id="shop-banner">
+        <div class="container">
             <h4 class="center">PORTFOLIO</h4>
             <hr>
-    </div>
-</section>
-<section class="container" id="shop-catgory-filter">
-    <div class="row filter-portfolio-category-text center-align">
-        <span class="portfolio-filter-by-direction"><strong>Filter by</strong></span>
-        <span>
-            <!-- Dropdown Trigger -->
-            <a class='category-dropdown-btn dropdown-button btn transparent' href='#' data-target='dropdown2'>
-                <span>Category</span>
-                <i class="material-icons right">keyboard_arrow_down</i>
-            </a>
-            <!-- Dropdown Structure -->
-            <ul id='dropdown2' class='dropdown-content category-dropdown-content'>
-                <li>
-                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings,cityscape,commercial,travel">
-                        <strong>All</strong>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings">
-                        <strong>Weddings</strong>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=cityscape">
-                        <strong>Cityscape</strong>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=commercial">
-                        <strong>Commercial</strong>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=travel">
-                        <strong>Travel</strong>
-                    </a>
-                </li>
-            </ul>
-        </span>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <div class="row">
-            {% for project in projects %}
-            <div class="col s12 m6">
-                    <div class="card portfolio-card">
-                        <!-- <div class="card-content"> -->
+        </div>
+    </section>
+    <section class="container" id="shop-catgory-filter">
+        <div class="row filter-portfolio-category-text center-align">
+            <span class="portfolio-filter-by-direction"><strong>Filter by</strong></span>
+            <span>
+                <!-- Dropdown Trigger -->
+                <a class='category-dropdown-btn dropdown-button btn transparent' href='#' data-target='dropdown2'>
+                    <span>Category</span>
+                    <i class="material-icons right">keyboard_arrow_down</i>
+                </a>
+                <!-- Dropdown Structure -->
+                <ul id='dropdown2' class='dropdown-content category-dropdown-content'>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings,cityscape,commercial,travel">
+                            <strong>All</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings">
+                            <strong>Weddings</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=cityscape">
+                            <strong>Cityscape</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=commercial">
+                            <strong>Commercial</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=travel">
+                            <strong>Travel</strong>
+                        </a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                {% for project in projects %}
+                <div class="col s12 m6">
+                        <div class="card portfolio-card">
                             <div class="portfolio-image">
                                 {% if project.image %}
-                                    <a href="">
+                                    <a>
                                         <img class="responsive-img image-img" src="{{ project.image.url }}" alt="{{ project.name }}">
                                     </a>
                                 {% else %}
-                                    <a href="" >
+                                    <a>
                                         <img class="center-align image-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ project.name }}">
                                     </a>
                                 {% endif %}
@@ -85,22 +83,20 @@
                                     <a class="waves-effect waves-light delete-btn transparent" href="{% url 'delete_project' project.id %}">Delete</a>
                                 </div>
                             {% endif %}
-                        <!-- </div> -->
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</section>
-<section class="container portfolio-contact-section">
-    <div class="row center">
-        <h6 class="portfolio-contact-text">Think we would be a good fit to work together? Let's chat...</h6>
-        <a href="{% url 'contact' %}" class="btn contact-btn waves-effect waves-light">
-            <span class="text-uppercase">Get In Touch</span>
-            <i class="material-icons right">chevron_right</i>
-        </a>
-    </div>
-</section>
-
+    </section>
+    <section class="container portfolio-contact-section">
+        <div class="row center">
+            <h6 class="portfolio-contact-text">Think we would be a good fit to work together? Let's chat...</h6>
+            <a href="{% url 'contact' %}" class="btn contact-btn waves-effect waves-light">
+                <span class="text-uppercase">Get In Touch</span>
+                <i class="material-icons right">chevron_right</i>
+            </a>
+        </div>
+    </section>
 {% endblock %}
 

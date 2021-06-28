@@ -44,35 +44,31 @@ input#id-save-info.form-check-input {
     margin-left: 6px;
 }
 
-input#id-save-info.form-check-input:[type="checkbox" i]:checked {
-    background-color: green;
-}
-
 .checkout-payment-header {
     margin-bottom: 20px;
 }
 
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
-  height: 40px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #fefde5 !important;
 }
 
 .stripe-style-input::placeholder {
@@ -104,7 +100,6 @@ input#id-save-info.form-check-input:[type="checkbox" i]:checked {
     margin-left: 5px;
     padding: 0 12px;
     background-color: #657d81;
-    /* background: transparent; */
     color: #fff;
     -webkit-box-shadow: none;
             box-shadow: none;

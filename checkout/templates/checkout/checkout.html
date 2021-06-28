@@ -47,7 +47,6 @@
                             <!-- Use to display form errors -->
                             <div id="card-errors" role="alert"></div>
                             <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                        </fieldset>
                         <!-- Submit Button -->
                         <div class="center checkout-btns-row">
                             <a href="{% url 'view_bag' %}" class="btn adjust-bag-btn waves-effect waves-light">
@@ -119,8 +118,6 @@
             </div>
             <div id="loading-overlay"></div>
     </section>
-    
-    
 {% endblock %}
 
 {% block postloadjs %}

@@ -1,7 +1,6 @@
 select,
 select option {
     display: block;
-    /* color: #000000; */
 }
 
 select#id_default_country {

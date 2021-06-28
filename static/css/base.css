@@ -128,7 +128,6 @@ i.fa-instagram {
     padding: 0 4px;
 }
 
-
 /* _____HR_____ */
 
 hr {
@@ -336,12 +335,10 @@ a.remove-item {
     color: rgba(16, 57, 90, 0.718);
     -webkit-box-shadow: none;
             box-shadow: none;
-    /* border: 1px solid rgb(185, 182, 182); */
     border-radius: 4px;
 }
 
 .update-item-btn:hover {
-    /* border: 1px solid rgba(16, 57, 90, 0.718); */
     -webkit-box-shadow: none;
             box-shadow: none;
 }
@@ -350,12 +347,10 @@ a.remove-item {
     color: rgba(173, 26, 26, 0.685);
     -webkit-box-shadow: none;
             box-shadow: none;
-    /* border: 1px solid rgb(185, 182, 182); */
     border-radius: 4px;
 }
 
 .remove-item-btn:hover {
-    /* border: 1px solid rgb(94, 92, 92); */
     -webkit-box-shadow: none;
             box-shadow: none;
 }
@@ -527,6 +522,20 @@ input.reset-btn-input {
             box-shadow: none;
 }
 
+.edit-product-img-btn {
+    color: rgba(16, 57, 90, 0.718);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.edit-product-img-btn:hover {
+    border: 1px solid rgba(16, 57, 90, 0.718);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
 /* Add/Edit Project Page */
 
 .cancel-add-project-btn,
@@ -565,6 +574,20 @@ input.reset-btn-input {
             box-shadow: none;
 }
 
+.edit-project-img-btn {
+    color: rgba(16, 57, 90, 0.718);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+.edit-project-img-btn:hover {
+    border: 1px solid rgba(16, 57, 90, 0.718);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
 .contact-page-btn {
     background-color: #657d81;
     -webkit-box-shadow: none;
@@ -586,16 +609,6 @@ input.reset-btn-input {
 
 
 /* _____Homepage_____ */
-
-/* .slider-main {
-    height: 600px;
-    width: 100%;
-}
-
-.slider .slides-main {
-    height: 600px;
-    width: 100%;
-} */
 
 .slider .slides {
     background-color: transparent;
@@ -946,6 +959,46 @@ input#product-quantity-count {
     width: 30%;
 }
 
+/* _____Edit Product______ */
+
+p.current-product-img-header {
+    margin: 4px 0;
+}
+
+div.edit-product-img {
+    margin: 4px 0 0 0;
+    padding-left: 16px;
+}
+
+div.edit-product-img input[type="checkbox" i] {
+    opacity: 1;
+    display: block;
+}
+
+div.edit-product-img label {
+    padding-left: 16px;
+}
+
+/* _____Edit Project______ */
+
+p.current-project-img-header {
+    margin: 4px 0;
+}
+
+div.edit-project-img {
+    margin: 4px 0 0 0;
+    padding-left: 16px;
+}
+
+div.edit-project-img input[type="checkbox" i] {
+    opacity: 1;
+    display: block;
+}
+
+div.edit-project-img label {
+    padding-left: 16px;
+}
+
 /* _____Shopping Bag_____ */
 
 div.col.shopping-bag-image {
@@ -1092,8 +1145,6 @@ div.col.order-summary-item {
 .email-success-home-btn {
     margin-top: 20px;
 }
-
-
 
 /* _____Product Form_____ */
 

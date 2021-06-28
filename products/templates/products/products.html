@@ -4,93 +4,91 @@
 {% block extra_title %}Shop{% endblock %}
 
 {% block content %}
-<section class="shop-banner" id="shop-banner">
-    <div class="container">
+    <section class="shop-banner" id="shop-banner">
+        <div class="container">
             <h4 class="center">SHOP</h4>
             <hr>
-    </div>
-</section>
-<section class="container delivery-banner-container">
-    <div class="delivery-banner white-text row">
-        <p class="delivery-banner-text valign-wrapper">Free delivery available on orders over £{{ free_delivery_threshold }}!</p>
-    </div>
-</section>
-<section class="container" id="shop-category-filter">
-    <div class="row filter-product-category-text center-align">
-        <span class="products-filter-by-direction"><strong>Filter by</strong></span>
-        <span>
-            <!-- Dropdown Trigger -->
-            <a class='category-dropdown-btn dropdown-button btn transparent' href='#' data-target='dropdown2'>
-                <span>Category</span>
-                <i class="material-icons right">keyboard_arrow_down</i>
-            </a>
-            <!-- Dropdown Structure -->
-            <ul id='dropdown2' class='dropdown-content product-dropdown-content'>
-                <li>
-                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape,portrait,city life">
-                        <strong>All</strong>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape">
-                        <strong>Landscape</strong>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=city life">
-                        <strong>City Life</strong>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=cityscape">
-                        <strong>Cityscape</strong>
-                    </a>
-                </li>
-            </ul>
-        </span>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <div class="row">
-            {% for product in products %}
-                <div class="col s12 m4">
-                    <div class="card product-card">
-                        <div class="card-content">
-                            <div class="card-image">
-                                {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                                    </a>
-                                    <span class="card-title product-descriptive-name">{{ product.descriptive_name }}</span>
-                                {% else %}
-                                    <a href="{% url 'product_detail' product.id %}" >
-                                        <img class="center-align" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                    </a>
+        </div>
+    </section>
+    <section class="container delivery-banner-container">
+        <div class="delivery-banner white-text row">
+            <p class="delivery-banner-text valign-wrapper">Free delivery available on orders over £{{ free_delivery_threshold }}!</p>
+        </div>
+    </section>
+    <section class="container" id="shop-category-filter">
+        <div class="row filter-product-category-text center-align">
+            <span class="products-filter-by-direction"><strong>Filter by</strong></span>
+            <span>
+                <!-- Dropdown Trigger -->
+                <a class='category-dropdown-btn dropdown-button btn transparent' href='#' data-target='dropdown2'>
+                    <span>Category</span>
+                    <i class="material-icons right">keyboard_arrow_down</i>
+                </a>
+                <!-- Dropdown Structure -->
+                <ul id='dropdown2' class='dropdown-content product-dropdown-content'>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape,portrait,city life">
+                            <strong>All</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=landscape">
+                            <strong>Landscape</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=city life">
+                            <strong>City Life</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn waves-effect waves-light transparent product-category-btn" href="{% url 'products' %}?category=cityscape">
+                            <strong>Cityscape</strong>
+                        </a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col s12 m4">
+                        <div class="card product-card">
+                            <div class="card-content">
+                                <div class="card-image">
+                                    {% if product.image %}
+                                        <a href="{% url 'product_detail' product.id %}">
+                                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                        </a>
+                                        <span class="card-title product-descriptive-name">{{ product.descriptive_name }}</span>
+                                    {% else %}
+                                        <a href="{% url 'product_detail' product.id %}" >
+                                            <img class="center-align" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <hr>
+                                <div class="row product-size">
+                                    <p>{{ product.size }}</p>
+                                </div>
+                                <div class="row product-price">
+                                    <p><strong>£{{ product.price }}</strong></p>
+                                </div>
+                                {% if request.user.is_superuser %}
+                                    <div>
+                                        <a class="waves-effect waves-light edit-btn transparent" href="{% url 'edit_product' product.id %}">Edit</a>
+                                        <span> | </span>
+                                        <a class="waves-effect waves-light delete-btn transparent" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    </div>
                                 {% endif %}
                             </div>
-                            <hr>
-                            <div class="row product-size">
-                                <p>{{ product.size }}</p>
-                            </div>
-                            <div class="row product-price">
-                                <p><strong>£{{ product.price }}</strong></p>
-                            </div>
-                            {% if request.user.is_superuser %}
-                                <div>
-                                    <a class="waves-effect waves-light edit-btn transparent" href="{% url 'edit_product' product.id %}">Edit</a>
-                                    <span> | </span>
-                                    <a class="waves-effect waves-light delete-btn transparent" href="{% url 'delete_product' product.id %}">Delete</a>
-                                </div>
-                            {% endif %}
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 {% endblock %}
 
