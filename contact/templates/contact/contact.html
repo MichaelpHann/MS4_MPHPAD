@@ -7,17 +7,25 @@
     <div class="container contact-form">
         <h4 class="center">GET IN TOUCH</h4>
         <hr>
-        <div class="container">
-            <div class="row">
-                <h6 class="contact-form-text">Want to know anything more about what I can offer, or have an exciting event or project that you would like me to capture... please just fill in the contact form below and we can chat! Michael</h6>
+            <div class="row contact-form-text">
+                <h6 class="center-align">If you have an exciting event or project you'd like me to capture or any questions....</h6>
+                <p class="center-align">Please just fill in the contact form below and we can chat! Michael</p>
             </div>
-            <form method="POST">
-                {% csrf_token %}
-                {{ form }}
-                <div class="form-actions center-align">
-                <button class="btn" type="submit">Send</button>
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                <div class="row card-panel">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="form-actions center-align">
+                        <button class="btn contact-page-btn waves-effect waves-light" type="submit">
+                            <span>Send</span>
+                            <i class="material-icons right">chevron_right</i>
+                        </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
+                </div>
+            </div>
     </div>
 {% endblock %}

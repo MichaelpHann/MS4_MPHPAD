@@ -2,3 +2,19 @@
 {% load static %}
 
 {% block extra_title %}Contact{% endblock %}
+
+{% block content %}
+    <div class="container contact-form">
+        <h4 class="center">EMAIL SENT....</h4>
+        <hr>
+        <div class="row contact-form-text">
+            <h6 class="center-align">Thank you for your message. I'll get back to you as soon as possible!</h6>
+        </div>
+        <div class="row center-align email-success-home-btn">
+            <div class="btn waves-effect waves-light home-btn">
+                <a href="{% url 'home' %}"><strong>Home</strong></a>
+                <i class="material-icons right"><strong>chevron_right</strong></i>
+            </div>
+        </div>
+    </div>
+{% endblock %}

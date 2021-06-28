@@ -201,6 +201,7 @@ a.dropdown-btn.dropdown-button {
 }
 
 /* Portfolio */
+
 a.category-dropdown-btn.dropdown-button {
     color: rgba(16, 57, 90, 0.718);
     font-weight: 400;
@@ -564,6 +565,25 @@ input.reset-btn-input {
             box-shadow: none;
 }
 
+.contact-page-btn {
+    background-color: #657d81;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.contact-page-btn:hover {
+    background-color: #5e7579;
+    border: 1px solid rgb(94, 92, 92);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+
+/* ----------END OF BUTTONS SECTION---------- */
+
 
 /* _____Homepage_____ */
 
@@ -729,7 +749,13 @@ div.card-content {
 .portfolio-image {
     position: relative;
     width: 100%;
-    border-radius: 2px;   
+    border-radius: 2px;
+    height: 350px;
+    max-width: 500px;
+}
+
+div .portfolio-image a img {
+    height: 100%;
 }
 
 .image-img {
@@ -770,6 +796,23 @@ div.card-content {
 div.image-overlay-title {
     font-weight: 300;
     letter-spacing: 0.2rem;
+}
+
+div.image-overlay-description {
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    font-size: 0.85rem;
+}
+
+.project-details {
+    padding-left: 14px;
+    margin: 8px 0 4px 0;
+    font-size: 1.15rem;
+}
+
+.project-details span,
+.project-details span strong {
+    font-weight: 300;
 }
 
 .portfolio-contact-section {
@@ -1033,13 +1076,23 @@ div.col.order-summary-item {
 
 /* _____Contact_____ */
 
-.contact-form {
-    
+.contact-form-text {
+    margin: 30px 0 0 0;
 }
 
-.contact-form-text {
+.contact-form-text h6,
+.contact-form-text p {
     font-weight: 300;
 }
+
+.contact-form-text h6 {
+    font-size: 1.25rem;
+}
+
+.email-success-home-btn {
+    margin-top: 20px;
+}
+
 
 
 /* _____Product Form_____ */

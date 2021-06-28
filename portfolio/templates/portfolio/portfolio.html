@@ -22,7 +22,7 @@
             <!-- Dropdown Structure -->
             <ul id='dropdown2' class='dropdown-content category-dropdown-content'>
                 <li>
-                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings,cityscape,commercial">
+                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=weddings,cityscape,commercial,travel">
                         <strong>All</strong>
                     </a>
                 </li>
@@ -39,6 +39,11 @@
                 <li>
                     <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=commercial">
                         <strong>Commercial</strong>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn waves-effect waves-light transparent portfolio-category-btn" href="{% url 'portfolio' %}?category=travel">
+                        <strong>Travel</strong>
                     </a>
                 </li>
             </ul>
@@ -58,7 +63,6 @@
                                     <a href="">
                                         <img class="responsive-img image-img" src="{{ project.image.url }}" alt="{{ project.name }}">
                                     </a>
-                                    
                                 {% else %}
                                     <a href="" >
                                         <img class="center-align image-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ project.name }}">
@@ -66,10 +70,12 @@
                                 {% endif %}
                                 <div class="image-overlay">
                                     <div class="card-title image-overlay-title">{{ project.descriptive_name }}</div>
+                                    <div class="image-overlay-description">{{ project.description }}</div>
                                 </div>
                             </div>
-                            <div class="row product-size">
-                                <span>{{ project.location }}</span>  |  
+                            <div class="row project-details">
+                                <span>{{ project.location }}</span>
+                                <span>   //   </span>
                                 <span><strong>{{ project.date }}</strong></span>
                             </div>
                             {% if request.user.is_superuser %}
@@ -87,7 +93,7 @@
     </div>
 </section>
 <section class="container portfolio-contact-section">
-    <div class=" row center">
+    <div class="row center">
         <h6 class="portfolio-contact-text">Think we would be a good fit to work together? Let's chat...</h6>
         <a href="{% url 'contact' %}" class="btn contact-btn waves-effect waves-light">
             <span class="text-uppercase">Get In Touch</span>

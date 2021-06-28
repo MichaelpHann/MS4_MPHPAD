@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Project
+from .models import Project, ProjectCategory
 from .forms import ProjectForm
 
 
@@ -10,9 +10,17 @@ def portfolio(request):
     """
 
     projects = Project.objects.all()
+    categories = None
+
+    if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            projects = projects.filter(category__name__in=categories)
+            categories = ProjectCategory.objects.filter(name__in=categories)
 
     context = {
         'projects': projects,
+        'current_categories': categories,
     }
 
     return render(request, 'portfolio/portfolio.html', context)
