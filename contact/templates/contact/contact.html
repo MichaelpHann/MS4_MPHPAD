@@ -2,3 +2,22 @@
 {% load static %}
 
 {% block extra_title %}Contact{% endblock %}
+
+{% block content %}
+    <div class="container contact-form">
+        <h4 class="center">GET IN TOUCH</h4>
+        <hr>
+        <div class="row">
+            <h6>CONTENT</h6>
+        </div>
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <div class="form-actions center-align">
+                <button class="btn" type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

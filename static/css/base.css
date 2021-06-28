@@ -140,6 +140,25 @@ hr {
     background-image: linear-gradient(to right, #ccc, rgb(192, 192, 192), #ccc);
 }
 
+/* _____Messages_____ */
+
+.messages-container {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 3px 0;
+    background: hsla(53, 43%, 54%, 1);
+    background: radial-gradient(circle, hsla(53, 43%, 54%, 0.7) 44%, hsla(60, 12%, 92%, 0.2) 99%);
+    background: -moz-radial-gradient(circle, hsla(53, 43%, 54%, 0.7) 44%, hsla(60, 12%, 92%, 0.2) 99%);
+    background: -webkit-radial-gradient(circle, hsla(53, 43%, 54%, 0.7) 44%, hsla(60, 12%, 92%, 0.2) 99%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#BDB158", endColorstr="#ECECE7", GradientType=1 );
+    border-radius: 2px;
+}
+
+h6.message-content {
+    font-weight: 300;
+    margin: 2px 0;
+}
+
 /* _____Buttons_____ */
 
 /* All buttons */
@@ -1011,6 +1030,13 @@ div.col.order-summary-item {
     margin: 0;
     padding-left: 8px;
 }
+
+/* _____Contact_____ */
+
+.contact-form {
+    
+}
+
 
 /* _____Product Form_____ */
 
