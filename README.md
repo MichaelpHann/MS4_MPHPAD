@@ -97,76 +97,61 @@ User with Superuser status who is logged in will see:
 - Shopping basket icon and basket total
 
 ###### Homepage
-The landing page presents a simple narrative introduction/background to the application. Additionally, a user who is not logged in will be presented with **Sign In** and **Sign Up** buttons that they can select depending on whether they are a new or existing user. A user who is already logged in will be presented with an **Explore** button that will direct them to the **Explore** page when pressed.
+The landing page is structured with distinct narrative sections throughout. The first section is a large 3-image slider/carousel. There is an "in page" link included to direct the user to descriptions of the photographer's services on offer. There is also a "Get In Touch" button that directs the user to the Contact page. The two parallaxes offer effectively separation of the narrative sections.
 
 ###### Create account
-A new user can create their own profile by selecting the **Sign Up** button on the Navbar. The user must enter their first name, last name, a username and password to create an account. There is a check in place to ensure the proposed username does not already exist on the database. There are also checks in place to ensure the username and passwords are of appropriate min and max lengths, and only contain acceptable characters. The Werkzeug package takes the input from the password form and generates a hashed password. This provides far greater security than storing passwords in plain text. The users new profile will be added to the **Users Collection** on MongoDB. A flash message will welcome the user.
+A new user can create their own profile by selecting the **Sign Up** button on the Navbar. The code checks the database for existing users to ensure to proposed username is unique. There are also checks in place to ensure the username and passwords are of appropriate min and max lengths, and only contain acceptable characters.
 
 ###### Sign In
-Users who have created an account can log into their own profile by selecting the **Sign In** button on the Navbar. The user must enter their Username and Password as stored in the database to log in, otherwise they will be presented with a message indicating that one or both elements are incorrect. A flash message will welcome the user back.
+Users who have created an account can log into their own profile by selecting the **Sign In** button on the Navbar. The user must enter their Username and Password as stored in the database to log in, otherwise they will be presented with a message indicating that one or both elements are incorrect.
 
 ###### Sign Out
-Users that have signed into the site can end their session at any time by clicking the **Sign Out** button on the Navbar. Flask will end their session using the session.pop() method and will redirect the user to the **Sign In** page.
+Users that have signed into the site can end their session at any time by clicking the **Sign Out** button on the Navbar. They will be prompted to confirm that they want to sign out by clicking the “Sign Out” button. Django will end their session and redirect the user to the homepage.
 
 ###### Portfolio
-A registered user who is signed into the application can create a new blog post by selecting the **New Post** button on the Navbar.
-
-The user must complete all elements of the **New Post** form including selecting a Category from the pre-populated dropdown menu, adding a blog post title and blog post content. The user will be prompted to complete all fields if they try to publish the post without them all having been completed. The published post will be stored in the **Posts Collection** in MongoDB, with the ObjectId also stored in the **user_posts** document of the specific user in the **Users Collection**. The post will be displayed on both the **Explore** page and the **USER POSTS** tab of the user’s **Profile** page (see detail below). A flash message will confirm the post was successfully published.
+Users can click the **Portfolio** button in the Navbar to access the portfolio page. The page will render a responsive grid of all projects currently stored in the database. The user can hover over each image to see more detail. The date and location of when/where the image was captured is disclosed below each image. The user will be able to filter the projects displayed based on their category type.
 
 ###### Portfolio Admin - Edit a Project
-A registered user who is signed into their profile and who has published a post can edit their post by selecting the **Edit** button.
-
-The user can click this button when viewing their posts on either the **Explore** or **Profile** page. The user will be taken to the **Edit Post** page where any/each of the three form elements - Category, Post Title, Post Content - can be changed. Once the user confirms the changes the edited post will be stored in the **Posts Collection** on MongoDB, and the changes will be displayed on both the Explore and Profile pages. A flash message will confirm the post was successfully updated. Access restrictions mean a user cannot edit another user’s post. 
+A user with superuser access will have the ability to click an **Edit** button located beneath each portfolio item. They will be redirected to a page with a form pre-populated with the portfolio details. The superuser can amend any details in this form and save them by clicking the **Update Project** button. These changes will be stored in the database and the superuser will be redirected to the **Portfolio** page, with the changes made now displayed.
 
 ###### Portfolio - delete project
-A registered 
+A user with superuser access will have the ability to click a **Delete** button beneath each portfolio item. This will delete the project from the database and re-render the Portfolio page, now excluding the deleted project.
+
+###### Portfolio Admin - Add a Project
+A user with superuser access will have the ability to select the **Portfolio Admin** option within the **Account** dropdown in the Navbar. They will be redirected to a page with a form with required project input fields. The superuser can add a project by populating this form, including adding an image, and save it by clicking the **Add Project** button. The new project will be stored in the database and the superuser will be redirected to the **Portfolio** page, with the new project will now be displayed.
 
 ###### Shop
-A registered user who is signed into their profile and who has published a post can delete their post by selecting the **Delete** button.
-
-The user can click this button when viewing their posts on either the **Explore** or **Profile** page. The post will be deleted from the **Posts Collection** in MongoDB and the ObjectId will be removed from the the **user_posts** document in the **Users Collection** also. Additionally, the post will no longer be displayed on either the **Explore** or **Profile** pages. A flash message will confirm the post has been deleted. Access restrictions mean a user cannot delete another user’s post. 
-
-###### Product detail page
-A user can “like” or “favourite” any post by clicking on the heart icon in the bottom-right of the post. Once clicked, the **favourites** document of the post in the **Posts Collection** in MongoDB is incremented by 1. Additionally, the ObjectId of the post is added to the “fav_posts” of the specific user in the **Users Collection** in MongoDB. Finally, the colour of the icon will change and the post will be added to the users **FAVOURITE POSTS** tab on their **Profile** page.
-
-If the user clicks the same icon again, return it to its original colour, the exact reverse of events described above will occur.
+Users can click the **Shop** button in the Navbar to access the shop page. The page will render a responsive grid of all products currently stored in the database. The size and price of each product is disclosed beneath each product image. Each product image is clickable and will direct the user to the corresponding Product Detail page. On the Shop page, the user will be able to filter the products displayed based on their category type.
 
 ###### Product Admin - Edit a Product
-A registered user who is signed into t
+A user with superuser access will have the ability to click an **Edit** button located beneath each product. They will be redirected to a page with a form pre-populated with the product details. The superuser can amend any details in this form and save them by clicking the **Update Product** button. These changes will be stored in the database and the superuser will be redirected to the **Shop** page, with the changes made now displayed.
 
 ###### Shop - delete product
-A registered 
+A user with superuser access will have the ability to click a **Delete** button beneath each product. This will delete the product from the database and re-render the **Shop** page, now excluding the deleted product.
 
-###### New Category
-The registered user with the **Admin** username, who is signed into the application can create a new category by selecting the **Manage Categories** button on the Navbar.
+###### Portfolio Admin - Add a Product
+A user with superuser access will have the ability to select the **Product Admin** option within the **Account** dropdown in the Navbar. They will be redirected to a page with a form with required product input fields. The superuser can add a product by populating this form, including adding an image, and save it by clicking the **Add Product** button. The new product will be stored in the database and the superuser will be redirected to the **Shop** page, with the new product will now be displayed.
 
-The user will be brought to the **Manage Categories** page where they can then select the **Create Category** button. They will be taken to the **New Category** page where they can add a new category name. A flash message will confirm the new post has been created. Once created, the category will be added to the **Categories Collection** on MongoDB and will be available to all users in the pre-populated dropdown menu in the **New Post** page. Access restrictions prevent a user who is not the “Admin” user from creating a new category.
+###### Product detail page
+Users, having clicked on a product image in the **Shop** page, are redirected to the product’s corresponding detail page. Further information about the product is disclosed here. The user can select a specified quantity of the product and add it to the shopping bag. The shopping bag feature in the Navbar will be updated to reflect the total cost of the products added, i.e. Price x Quantity. There is a restriction in place preventing a zero or negative quantity being selected. The user can also return to the Shop page by selecting the **Keep Shopping** button.
 
-###### Edit Category
-The registered user with the **Admin** username, who is signed into the application can edit an existing category by selecting the **Manage Categories** button on the Navbar. 
+###### Shopping Bag
+Users can access the shopping bag by clicking the shopping bag icon/total order value in the Navbar. The user will be presented with a detailed summary of all products added to the shopping bag. The user can adjust the quantity of each product in the shopping bag (down to 1 or up to 99 items) by clicking the plus and minus icon buttons and confirming the new quantity be clicking **Update**. There is a restriction in place preventing a zero or negative quantity being selected. The total order cost will be adjusted automatically to reflect any changes in quantities. To remove a product entirely, the **Delete** button for the specific product should be pressed. This will delete the product from the shopping bag and update the total order value accordingly. The **Keep Shopping** button redirects the user to the **Shop** page. The **Secure Checkout** button will direct the user to the **Checkout** page.
 
-The user will be brought to the **Manage Categories** page where each existing category will have a corresponding **Edit** button. When selected the user will be taken to the **Edit Category** page where they can amend the category name. A flash message will confirm the the category name has been updated. The amended category will be stored in the **Categories Collection** on MongoDB. Once updated, the revised category will be available to all users in the pre-populated dropdown menu in the **New Post** page. Access restrictions prevent a user who is not the **Admin** user from creating a new category.
+###### Checkout
+Users are presented with an *Order Summary** showing details and price of the purchase in progress. Users are also presented with a form to be completed in order to finalise the order. Some fields, such as Full Name, Address Line 1, etc, are required and form validation errors will flag any missing inputs if the user attempts to process the order without them. If the user has a profile and has previously requested, by clicking the relevant checkbox ,for their details to be saved then this form will be pre-populated. If not pre-populated, a user can click the checkbox input at the bottom of the form to save the information to their profile. The user can enter their card details and finalise the purchase by pressing the **Complete Order** button. The completed order will be registered on the site owners Stripe profile and an order confirmation email will be sent the the customers email address.
 
-###### Delete Category
-The registered user with the **Admin** username, who is signed into the application can edit an existing category by selecting the **Manage Categories** button on the Navbar.
+###### Checkout Success
+On completing their order the user is directed to an order summary page that includes confirmation of the email address to which the order summary email will be sent.
 
-The user will be brought to the **Manage Categories** page where each existing category will have a corresponding **Delete** button. Once clicked the post will be deleted from the database, and its ObjectId is removed from their list of posts in their user record. The recipe is also removed from the favourites of all other users.
+###### Contact
+Users can access the messaging/email functionality by clicking the **Contact** link in the Navbar. The user is presented with a form with required input fields. When the **Send** button is pressed the message is sent to the site owner/registered email address and the user is redirected to an email success page.
 
-###### Profile - User Posts
-All posts that a user has published will be displayed in the **USER POSTS** tab of their **Profile** page. The user can edit and delete these posts in the same manner as they can on the **Explore** page.
+###### Email success
+The user will receive confirmation here that their email has been sent.
 
-If the user has not published any posts they will be presented with a placeholder message of **View all your published posts here!**.
-
-Profile - Favourite Posts
-All posts that a user has “liked” or “favourited” will be displayed in the **FAVOURITE POSTS**  tab of their **Profile** page.
-
-If the user has not “liked”/“favourited” any posts they will be presented with a placeholder message of **A place for you to curate your favourite posts!**.
-
-###### Explore - Search
-Any user that is logged in can conduct a keyword search based on the words contained with the Post Titles and Post Contents, as displayed at any point in time on the **Explore** page. A successful search will result in only those posts that contain a word matching that which was searched displayed on the **Explore** page.
-
-###### Explore - Posts
-Any user that is logged in can view all posts that have been published at any point in time on the **Explore** page.
+###### Other user administrative features
+There are several other user administrative features within the site including password reset functionality and email confirmation/verification.
 
 ### Future features
 
