@@ -25,7 +25,7 @@ Live application demo can be found [**here**](https://ms4-project-mph.herokuapp.
  
  
 _____
- 
+
 ## UX
  
 ### Application overview
@@ -160,7 +160,7 @@ Course submission time pressures meant I was unable to implement this feature. H
 ###### Social login
 The ability for users to sign up/sign in via their preferred social media channel, providing a more seamless, integrated user experience.
 _____
- 
+
 ## Technologies Used
 #### Coding Languages
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) - used to build the structure of this application.
@@ -217,11 +217,15 @@ All Python code was passed through the [PEP8 Online Validator](http://pep8online
 #### Manual testing
 Significant iterative manual testing was conducted on this application throughout the development process. Testing was conducted to ensure application functionality and responsiveness across a range of browsers and devices.
 
-The outcome of the manual testing performed is documented [here](https://github.com/MichaelpHann/MS3-Project/tree/master/testing).
+The outcome of the manual testing performed is documented [here](https://github.com/MichaelpHann/MS4_MPHPAD/tree/master/testing).
  
 #### Functionality
 Google Chrome Developer was the principal tool used throughout the build to test functionality and device responsiveness. Additionally, in the latter stages, application responsiveness was tested via live user testing across a range of mobile, tablet and desktop devices. All feedback provided as part of this testing has been considered and, where necessary, incorporated into the application.
+
+#### Bugs
+There is an inconsistency between device types with the required mouse pointer position when clicking the three Checkbox inputs in the application. There is no issue on mobile devices, the user can press directly onto the Checkbox. However, the user most click just to the left of the Checkbox when using the application on a desktop. Project submission timelines did not allow me the time to resolve this issue.
 _____
+
 
 ## Deployment
  
@@ -262,9 +266,9 @@ STRIPE_WH_SECRET
 USE_AWL
 ```
 
-    Ensure the `env.py` file is added to `.gitignore` prior to making any commits.
+Ensure the `env.py` file is added to `.gitignore` prior to making any commits.
 
-    NB. A working knowledge on how to configure a publicly accessible S3 Bucket and the Stripe API are assumed for this project, as detailed instructions are beyond the scope of this document.
+NB. A working knowledge on how to configure a publicly accessible S3 Bucket and the Stripe API are assumed for this project, as detailed instructions are beyond the scope of this document.
 
 4. At the terminal prompt, type `python3 manage.py runserver`. Django should begin to run a development server and the application will be available in your browser at the address `http://localhost:8000`.
 
@@ -277,7 +281,6 @@ python3 manage.py migrate
 ```
 python3 manage.py createsuperuser
 ```
-
 
 ### Remote Deployment
 

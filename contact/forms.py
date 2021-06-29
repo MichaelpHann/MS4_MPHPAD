@@ -1,7 +1,5 @@
 from django import forms
 
-# Approach adapted from ordinarycoders.com, as documented in Project README
-
 
 class ContactForm(forms.Form):
     first_name = forms.CharField(required=True)
