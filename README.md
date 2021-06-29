@@ -56,16 +56,10 @@ For my MS4 project I have designed a fictional e-commerce and photography servic
 ### Database schema
 ![Database Schema](https://github.com/MichaelpHann/MS4_MPHPAD/blob/master/static/README_imgs/MS4%20DB%20Schema.png)
 
-This project has been built using MongoDB Atlas. MongoDB is a non-relational database that enables the storage and retrieval of user data sent to the database.
+This project has been built initially using the SQLite3 database, before finally migrating to utilise Heroku Postgres. Heroku Postgres is a popular relational database.
 
-The database schema illustrated above is relatively simple, containing three collections, each of which contain two or more documents.
+The database schema illustrated above is relatively simple, based on four applications, each containing one or two models.
 
-* **Categories Collection** - includes reference to the category name, only. The app includes a number of preset categories, and the "Admin" user has the ability to add additional categories via the "Create Category" function.
-
-* **Posts Collection** - includes user inputs as well as data injected/retrieved from other collections. The user's form inputs when creating the blog post are strings and populate "post_title" and "post_content" documents. The "created_by" document is a string and is populated with the username from the **Users Collection**. The "poster" document is populated with the user's ObjectId from the **Users Collection**. The "favourites" document is an integer that increments or decrements each time a user adds or removes a post from their favourites.
-
-* **Users Collection** - also includes user inputs as well as data injected/retrieved from other collections. Inputs from the user sign-up form will be the first posting of the "first_name", "last_name", "username" and "password" string documents. These will be accessed/referred to each time the user signs into the app as well as if the user publishes a post. The "user_posts" document is an array and stores the ObjectId of each blog post that the user publishes. This array will be accessed and rendered to the user's profile page, displaying each of the user's posts. The "fav_posts" document is also an array and stores the ObjectId of each blog post that the user 'likes'. This array will be accessed and rendered to the user's profile page, displaying each of the user's "favourited" posts.
- 
 ### Wireframes
 Wireframes for this website can be accessed in my wireframes folder within this github repository - [my wireframes](https://github.com/MichaelpHann/MS3-Project/tree/master/Wireframes)
  
