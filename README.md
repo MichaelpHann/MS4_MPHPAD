@@ -54,7 +54,7 @@ For my MS4 project I have designed a fictional e-commerce and photography servic
 * Distinctive and complementary button colour scheme used throughout. Other than the images these are the only "splash" of colour in the website. The colours have attempted to be utilised consistently throughout with. For example, "return" actions like to keep shopping, adjust page or go to the homepage, have been coloured consistently. Then, "call to action" buttons such as add to bag and complete order have been styled in consistent colour.
 
 ### Database schema
-![Database Schema](https://github.com/MichaelpHann/MS3-Project/blob/master/static/README-imgs/Database%20Schema.PNG)
+![Database Schema](https://github.com/MichaelpHann/MS4_MPHPAD/blob/master/static/README_imgs/MS4%20DB%20Schema.png)
 
 This project has been built using MongoDB Atlas. MongoDB is a non-relational database that enables the storage and retrieval of user data sent to the database.
 
