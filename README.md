@@ -33,11 +33,25 @@ _____
 For my MS4 project I have designed a fictional e-commerce and photography services website. This is a full stack, fully responsive application, designed to showcase a photographer’s skills through a range of available-to-purchase prints and a portfolio of previous client work.
  
 ### User stories
-* 
-* 
- 
+* As a new user I want to be able to quickly and intuitively understand the purpose of the website, how to navigate throughout it, and what I need to do to register and fully utilise the functionality on offer.
+* As a user I want to be able to quickly see who the website owner/photography is, learn about their experience and understand what services they offer.
+* As a user, potentially interested in hiring the photographer, I want to be able to easily view a portfolio of a selection of their previous work to allow me to determine if I like it and their style of working.
+* As a user I want to be able to easily locate the website's shop and effortlessly browse through the selection of prints for sale, being able to understand their size and pricing.
+* As a profile user who wishes to purchase a print I want a straight forward and intuitive checkout process.
+* As a profile user I want to be able to save/store my personal and delivery information to allow even further ease of use of the website in the future.
+* As a user I want to be able to contact the site owner/photographer if I have a question about a product or service.
+* As a site owner and photographer I want to be able to effectively showcase my prints for sale, previous experience and highlight my services on offer.
+* As a site owner I want to be able to effectively and efficiently manage the stock available in the website's shop and the images I have on display in my portfolio of work, including being able to add, edit and delete products/portfolio items.
+
 ### Design choices
-* 
+* The website has been designed using the Materialize framework, utilising the framework's standard elements, with the colour altered to match the overall scheme of the website.
+* There is a simple, clean white core colour scheme used throughout the website. This design choice was based on wanting to ensure a user's eye was drawn to the images, as they are the USP of the website/photographer. I didn't wany anything to detract from them.
+* There is a minimalist, yet extremely functional, user interface on the navigation bar/ribbon, that collapses for mobile functionality. Again, I thought it important that the design focused on drawing the user's eye to the images throughout.
+* For website pages that do not include any images I have maintained the simple white colour palette. I considered adding other colours in these intances, however on balance I felt the pages worked well and thought it was more important to maintin a consistent colour scheme throughout.
+* The Karla font from Google Fonts was used throughout the website. This was principally displayed using a 300 font-weight and it most suited the clean, simple overall deisgn theme.
+* Use of instructive/complementary actions icons throughout. Consistent use of minimalist “chevron” icons used in buttons throughout, except for small number of distinct action buttons.
+* Descriptive button labelling throughout to ensure a positive user experience.
+* Distinctive and complementary button colour scheme used throughout. Other than the images these are the only "splash" of colour in the website. The colours have attempted to be utilised consistently throughout with. For example, "return" actions like to keep shopping, adjust page or go to the homepage, have been coloured consistently. Then, "call to action" buttons such as add to bag and complete order have been styled in consistent colour.
 
 ### Database schema
 ![Database Schema](https://github.com/MichaelpHann/MS3-Project/blob/master/static/README-imgs/Database%20Schema.PNG)
@@ -61,27 +75,32 @@ _____
 ### Existing features
 
 ###### User status-dependent Navbar/Ribbon
-Options that a user will see displayed in the navbar are dependant on the user’s status (logged in, logged out, logged in & Admin user status).
+Options that a user will see displayed in the navbar are dependant on the user’s status (signed up, signed out, signed in & Superuser status).
 
-Users that are not logged in will see:
-- Home
-- Sign In
+Users that are not signed in will see:
+- Portfolio
+- Shop
+- Contact
+- M P H Photography icon and homepage link
 - Sign Up
+- Sign In
+- Shopping basket icon and basket total
 
-Users that are logged in will see:
-- Home
-- Explore
-- Profile
-- New Post
-- Sign Out
+Users that are signed in will see:
+- Portfolio
+- Shop
+- Contact
+- M P H Photography icon and homepage link
+- Account dropdown button that includes Profile and Sign Out options
+- Shopping basket icon and basket total
 
-User with Admin status who is logged in will see:
-- Home
-- Explore
-- Profile
-- New Post
-- Manage Categories
-- Sign Out
+User with Superuser status who is logged in will see:
+- Portfolio
+- Shop
+- Contact
+- M P H Photography icon and homepage link
+- Account dropdown button that includes Profile, Sign Out, Product Admin and Project Admin options
+- Shopping basket icon and basket total
 
 ###### Homepage
 The landing page presents a simple narrative introduction/background to the application. Additionally, a user who is not logged in will be presented with **Sign In** and **Sign Up** buttons that they can select depending on whether they are a new or existing user. A user who is already logged in will be presented with an **Explore** button that will direct them to the **Explore** page when pressed.
@@ -95,25 +114,34 @@ Users who have created an account can log into their own profile by selecting th
 ###### Sign Out
 Users that have signed into the site can end their session at any time by clicking the **Sign Out** button on the Navbar. Flask will end their session using the session.pop() method and will redirect the user to the **Sign In** page.
 
-###### New Post
+###### Portfolio
 A registered user who is signed into the application can create a new blog post by selecting the **New Post** button on the Navbar.
 
 The user must complete all elements of the **New Post** form including selecting a Category from the pre-populated dropdown menu, adding a blog post title and blog post content. The user will be prompted to complete all fields if they try to publish the post without them all having been completed. The published post will be stored in the **Posts Collection** in MongoDB, with the ObjectId also stored in the **user_posts** document of the specific user in the **Users Collection**. The post will be displayed on both the **Explore** page and the **USER POSTS** tab of the user’s **Profile** page (see detail below). A flash message will confirm the post was successfully published.
 
-###### Edit Post
+###### Portfolio Admin - Edit a Project
 A registered user who is signed into their profile and who has published a post can edit their post by selecting the **Edit** button.
 
 The user can click this button when viewing their posts on either the **Explore** or **Profile** page. The user will be taken to the **Edit Post** page where any/each of the three form elements - Category, Post Title, Post Content - can be changed. Once the user confirms the changes the edited post will be stored in the **Posts Collection** on MongoDB, and the changes will be displayed on both the Explore and Profile pages. A flash message will confirm the post was successfully updated. Access restrictions mean a user cannot edit another user’s post. 
 
-###### Delete Post
+###### Portfolio - delete project
+A registered 
+
+###### Shop
 A registered user who is signed into their profile and who has published a post can delete their post by selecting the **Delete** button.
 
 The user can click this button when viewing their posts on either the **Explore** or **Profile** page. The post will be deleted from the **Posts Collection** in MongoDB and the ObjectId will be removed from the the **user_posts** document in the **Users Collection** also. Additionally, the post will no longer be displayed on either the **Explore** or **Profile** pages. A flash message will confirm the post has been deleted. Access restrictions mean a user cannot delete another user’s post. 
 
-###### Like Post / Unlike Post
+###### Product detail page
 A user can “like” or “favourite” any post by clicking on the heart icon in the bottom-right of the post. Once clicked, the **favourites** document of the post in the **Posts Collection** in MongoDB is incremented by 1. Additionally, the ObjectId of the post is added to the “fav_posts” of the specific user in the **Users Collection** in MongoDB. Finally, the colour of the icon will change and the post will be added to the users **FAVOURITE POSTS** tab on their **Profile** page.
 
 If the user clicks the same icon again, return it to its original colour, the exact reverse of events described above will occur.
+
+###### Product Admin - Edit a Product
+A registered user who is signed into t
+
+###### Shop - delete product
+A registered 
 
 ###### New Category
 The registered user with the **Admin** username, who is signed into the application can create a new category by selecting the **Manage Categories** button on the Navbar.
