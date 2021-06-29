@@ -44,31 +44,30 @@
                                     <td class="col s2 right-align">
                                         <p class="">£{{ item.product.price }}</p>
                                     </td>
-                                    <td class="col s2 offset-s1 right-align">
+                                    <td class="col s3 right-align">
                                         <div class="row bag-quantity-row">
-                                            <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                                            <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                                 {% csrf_token %}
-                                                <!-- <div class="input-group qty_input"></div> -->
-                                                <input class="right-align" type="number"
-                                                    name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                    data-item_id="{{ item.item_id }}"
-                                                    id="id_qty_{{ item.item_id }}">
-                                                <button class="decrement-qty btn btn-sm form-button rounded-5" 
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                    <span>
-                                                        <i class="fas fa-minus fa-sm"></i>
-                                                    </span>
-                                                </button>
-                                                <button class="increment-qty btn btn-sm form-button rounded-5"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                    <span>
-                                                        <i class="fas fa-plus fa-sm"></i>
-                                                    </span>
-                                                </button>
+                                                <div class="input-group">
+                                                    <input class="right-align qty_input" type="number"
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                        data-item_id="{{ item.item_id }}"
+                                                        id="id_qty_{{ item.item_id }}">
+                                                    <button class="decrement-qty btn btn-small transparent" 
+                                                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                        <span>
+                                                            <i class="fas fa-minus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                    <button class="increment-qty btn btn-small transparent"
+                                                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                        <span>
+                                                            <i class="fas fa-plus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
                                             </form>
-                                        </div>
-                                        <div class="row bag-adjust-btns">
-                                            <a class="update-link text-info update-item-btn transparent">
+                                            <a class="update-link text-info update-item-btn">
                                                 <small>Update</small>
                                             </a>
                                             <a class="remove-item remove-item-btn transparent" id="remove_{{ item.item_id }}">
@@ -134,7 +133,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-    <script>
+<script type="text/javascript">
     // Increment quantity
     $('.increment-qty').click(function(e) {
        e.preventDefault();
@@ -142,7 +141,7 @@
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue + 1);
        var itemId = $(this).data('item_id');
-       handleEnableDisable(itemId);
+    //    handleEnableDisable(itemId);
     });
 
     // Decrement quantity
@@ -152,19 +151,19 @@
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue - 1);
        var itemId = $(this).data('item_id');
-       handleEnableDisable(itemId);
+    //    handleEnableDisable(itemId);
     });
 
     // Update quantity on click
-    $(".update-link").click(function (e) {
-    var form = $(this).prev(".update-form");
-    form.submit();
+    $('.update-link').click(function (e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
     });
 
     // Remove item and reload on click
-    $(".remove-item").click(function (e) {
+    $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr("id").split("remove_")[1];
+        var itemId = $(this).attr("id").split('remove_')[1];
         var url = `/bag/remove/${itemId}/`;
         var data = { 'csrfmiddlewaretoken': csrfToken };
 
@@ -172,6 +171,6 @@
         location.reload();
         });
     });
-    </script>
+</script>
 {% endblock %}
 

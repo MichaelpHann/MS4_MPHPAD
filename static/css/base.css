@@ -1049,6 +1049,27 @@ a.remove-item {
     padding: 4px 0;
 }
 
+button.btn-small {
+    height: 20px;
+    line-height: 20px;
+    color: rgba(16, 57, 90, 0.718);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 4px;
+}
+
+button.btn-small:hover {
+    border: 1px solid rgba(16, 57, 90, 0.718);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+button.increment-qty i.fas.fa-plus,
+button.decrement-qty i.fas.fa-minus {
+    font-size: 12px;
+}
+
 /* _____Checkout_____ */
 
 .order-summary {
