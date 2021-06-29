@@ -7,9 +7,8 @@ from .forms import ProjectForm
 
 def portfolio(request):
     """
-    A view to show all portfolio projects
+    A view to show all products, including ability to search
     """
-
     projects = Project.objects.all()
     categories = None
 
@@ -71,7 +70,7 @@ def edit_project(request, project_id):
         form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated project!')
+            messages.success(request, 'Successfully updated project')
             return redirect(reverse('portfolio'))
         else:
             messages.error(request, 'Failed to update project. \
