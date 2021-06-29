@@ -41,7 +41,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             {% if redirect_field_value %}
-                nput type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
             <div class="btn waves-effect waves-light home-btn">
                 <a href="{% url 'home' %}"><strong>Home</strong></a>
