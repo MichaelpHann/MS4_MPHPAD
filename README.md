@@ -199,7 +199,7 @@ _____
 #### Code Validation
 
 ###### HTML
-The [W3C Markup Validator](https://validator.w3.org/) was used to check HTML from all templates. This generated a number of errors due to the inability of the validator to understand Jinja templating that builds most aspects of each page. For the HTML that does not involve Jinja, no errors were found.
+The [W3C Markup Validator](https://validator.w3.org/) was used to check HTML from all templates. This generated a number of errors due to the inability of the validator to understand Django templating logic that builds most aspects of each page. For the HTML that does not involve Django templating, no errors were found.
 
 ###### CSS autoprefixer
 The online [CSS autoprefixer](https://autoprefixer.github.io/) was used to ensure all appropriate prefixes were included. Output generated was used.
@@ -225,7 +225,6 @@ Google Chrome Developer was the principal tool used throughout the build to test
 #### Bugs
 There is an inconsistency between device types with the required mouse pointer position when clicking the three Checkbox inputs in the application. There is no issue on mobile devices, the user can press directly onto the Checkbox. However, the user most click just to the left of the Checkbox when using the application on a desktop. Project submission timelines did not allow me the time to resolve this issue.
 _____
-
 
 ## Deployment
  
