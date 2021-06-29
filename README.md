@@ -221,9 +221,6 @@ The outcome of the manual testing performed is documented [here](https://github.
  
 #### Functionality
 Google Chrome Developer was the principal tool used throughout the build to test functionality and device responsiveness. Additionally, in the latter stages, application responsiveness was tested via live user testing across a range of mobile, tablet and desktop devices. All feedback provided as part of this testing has been considered and, where necessary, incorporated into the application.
-
-_____
-
 _____
 
 ## Deployment
@@ -239,7 +236,7 @@ The app also relies on the following services, each of which should have an acco
 * [Stripe](https://stripe.com/)
 * An email account, [GMail](https://mail.google.com/) is ideal as it is reliable and easy to set up.
 
-#### Local Deployment
+### Local Deployment
 1. To clone this respository on GitHub navigate to the project [here](https://github.com/MichaelpHann/MS4_MPHPAD), select the **Code** dropdown button and download the zip of the project.
 * Alternatively, enter the following into the Git CLI terminal:
 ```
@@ -265,13 +262,13 @@ STRIPE_WH_SECRET
 USE_AWL
 ```
 
-Ensure the `env.py` file is added to `.gitignore` prior to making any commits.
+    Ensure the `env.py` file is added to `.gitignore` prior to making any commits.
 
-NB. A working knowledge on how to configure a publicly accessible S3 Bucket and the Stripe API are assumed for this project, as detailed instructions are beyond the scope of this document.
+    NB. A working knowledge on how to configure a publicly accessible S3 Bucket and the Stripe API are assumed for this project, as detailed instructions are beyond the scope of this document.
 
 4. At the terminal prompt, type `python3 manage.py runserver`. Django should begin to run a development server and the application will be available in your browser at the address `http://localhost:8000`.
 
-Running the project for the first time will cause Django to create a SQLite3 database, entitled `db.sqlite3`. At the terminal prompt, the following command should be entered to create the database schema (as illustrated earlier in this file).
+    Running the project for the first time will cause Django to create a SQLite3 database, entitled `db.sqlite3`. At the terminal prompt, the following command should be entered to create the database schema (as illustrated earlier in this file).
 ```
 python3 manage.py migrate
 ```
@@ -282,7 +279,7 @@ python3 manage.py createsuperuser
 ```
 
 
-#### Remote Deployment
+### Remote Deployment
 
 To deploy this application to Heroku, the following steps must be followed:
 
@@ -303,13 +300,13 @@ _____
 
 ## Credits
 ### Technical sources
-* Technical elements of the project were developed and, as required, adapted based on frameworks implemented in the [Code Institute Boutique Ado mini-project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/)
-* The homepage workflow section structure was built in line with, and adapted where appropriate, guidance from [The Net Ninja](https://www.youtube.com/watch?v=KaP_t0RrAS8&list=PL4cUxeGkcC9gGrbtvASEZSlFEYBnPkmff&index=18)
-* The contact form was built in line with, and adapted where appropriate, guidance from [Ordinary Coders](https://www.ordinarycoders.com/blog/article/build-a-django-contact-form-with-email-backend)
+* Technical elements of the project were developed and, as required, adapted based on frameworks implemented in the [Code Institute Boutique Ado mini-project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/).
+* The homepage workflow section structure was built in line with, and adapted where appropriate, guidance from [The Net Ninja](https://www.youtube.com/watch?v=KaP_t0RrAS8&list=PL4cUxeGkcC9gGrbtvASEZSlFEYBnPkmff&index=18).
+* The contact form was built in line with, and adapted where appropriate, guidance from [Ordinary Coders](https://www.ordinarycoders.com/blog/article/build-a-django-contact-form-with-email-backend).
 * The messages banner background colour was styled using [Coolors](https://coolors.co/) gradient maker
 
 ### Media
-* All images throughout the application were sourced from either [Pexels](https://www.pexels.com/) or [Unsplash](https://unsplash.com/) and, where required, resized using [Canva](https://www.canva.com/)
+* All images throughout the application were sourced from either [Pexels](https://www.pexels.com/) or [Unsplash](https://unsplash.com/) and, where required, resized using [Canva](https://www.canva.com/).
 
 _____
 
