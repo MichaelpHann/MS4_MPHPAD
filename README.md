@@ -51,7 +51,7 @@ For my MS4 project I have designed a fictional e-commerce and photography servic
 * The Karla font from Google Fonts was used throughout the website. This was principally displayed using a 300 font-weight and it most suited the clean, simple overall deisgn theme.
 * Use of instructive/complementary actions icons throughout. Consistent use of minimalist “chevron” icons used in buttons throughout, except for small number of distinct action buttons.
 * Descriptive button labelling throughout to ensure a positive user experience.
-* Distinctive and complementary button colour scheme used throughout. Other than the images these are the only "splash" of colour in the website. The colours have attempted to be utilised consistently throughout with. For example, "return" actions like to keep shopping, adjust page or go to the homepage, have been coloured consistently. Then, "call to action" buttons such as add to bag and complete order have been styled in consistent colour.
+* Distinctive and complementary button colour scheme used throughout. Other than the images these are the only "splash" of colour in the website. The colours have attempted to be utilised consistently throughout with. For example, "return" actions like to keep shopping, adjust page or go to the homepage, have been coloured consistently. Then "call to action" buttons, such as add to bag and complete order, have been styled in consistent colour.
 
 ### Database schema
 ![Database Schema](https://github.com/MichaelpHann/MS4_MPHPAD/blob/master/static/README_imgs/MS4%20DB%20Schema.png)
