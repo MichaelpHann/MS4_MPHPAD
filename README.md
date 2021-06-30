@@ -61,7 +61,7 @@ This project has been built initially using the SQLite3 database, before finally
 The database schema illustrated above is relatively simple, based on four applications, each containing one or two models.
 
 ### Wireframes
-Wireframes for this website can be accessed in my wireframes folder within this github repository - [my wireframes](https://github.com/MichaelpHann/MS3-Project/tree/master/Wireframes)
+Wireframes for this website can be accessed in my wireframes folder within this github repository - [my wireframes](https://github.com/MichaelpHann/MS4_MPHPAD/tree/master/Wireframes)
  
 _____
 
@@ -69,7 +69,7 @@ _____
 ### Existing features
 
 ###### User status-dependent Navbar/Ribbon
-Options that a user will see displayed in the navbar are dependant on the user’s status (signed up, signed out, signed in & Superuser status).
+Options that a user will see displayed in the navbar are dependant on the user’s status (signed up, signed out, signed in & superuser status).
 
 Users that are not signed in will see:
 - Portfolio
